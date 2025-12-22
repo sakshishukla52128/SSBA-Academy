@@ -1,0 +1,1675 @@
+/* ========================================
+   PROGRAMS PAGE - COMPLETE RESPONSIVE DESIGN
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.programs-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+.programs-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 450px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 80px; /* Added margin to push below navbar */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 900px;
+  animation: fadeInUp 0.8s ease-out;
+  margin-top: 53px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 12px 30px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+  letter-spacing: -1px;
+}
+
+.hero-description {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   TABS SECTION
+======================================== */
+.programs-tabs-section {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 80px; /* Stays below the navbar */
+  z-index: 100;
+  border-bottom: 3px solid #f0f0f0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.programs-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 25px 20px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 35px;
+  background: #f8f9fa;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn svg {
+  font-size: 1.2rem;
+}
+
+.tab-btn:hover {
+  background: #e9ecef;
+  color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: #667eea;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* ========================================
+   SECTION HEADER
+======================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-top: 80px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #222;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* ========================================
+   TOURNAMENTS SECTION
+======================================== */
+.tournaments-section {
+  padding-bottom: 100px;
+}
+
+.tournaments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 35px;
+}
+
+.tournament-card {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.tournament-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+.tournament-card.featured {
+  border: 3px solid #ffd700;
+  box-shadow: 0 15px 50px rgba(255, 215, 0, 0.3);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #222;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tournament-image {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.tournament-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.tournament-card:hover .tournament-image img {
+  transform: scale(1.15);
+}
+
+.status-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(102, 126, 234, 0.95);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tournament-content {
+  padding: 30px;
+}
+
+.tournament-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.tournament-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.tournament-details {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.detail-item svg {
+  color: #667eea;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.tournament-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 25px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.deadline-info small {
+  color: #ff6b6b;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.register-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.register-btn:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* ========================================
+   EVENTS SECTION
+======================================== */
+.events-section {
+  padding-bottom: 100px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 35px;
+}
+
+.event-card {
+  background: white;
+  border-radius: 25px;
+  padding: 35px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.event-type-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.event-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.event-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.event-details {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 30px; /* Changed from margin-bottom: 30px to add space before button */
+}
+
+.event-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.detail-icon {
+  color: #667eea;
+  font-size: 1.2rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.detail-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.detail-text strong {
+  color: #222;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.event-register-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  margin-top: 25px; /* Added margin-top for spacing */
+}
+
+/* ========================================
+   PAST TOURNAMENTS SECTION
+======================================== */
+.past-tournaments-section {
+  padding-bottom: 100px;
+}
+
+.past-tournaments-list {
+  display: grid;
+  gap: 35px;
+}
+
+.past-tournament-card {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.past-tournament-card:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.past-tournament-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 35px;
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border-bottom: 3px solid #f0f0f0;
+}
+
+.tournament-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #222;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+
+.tournament-info h3 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.tournament-meta {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.tournament-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.tournament-meta svg {
+  color: #667eea;
+  font-size: 1rem;
+}
+
+.past-tournament-body {
+  padding: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+}
+
+.winners-section h4,
+.highlights-section h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 18px;
+}
+
+.winners-list {
+  list-style: none;
+  padding: 0;
+}
+
+.winners-list li {
+  padding: 12px 0;
+  color: #555;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 1rem;
+}
+
+.winners-list li:last-child {
+  border-bottom: none;
+}
+
+.highlights-section p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* ========================================
+   TOURNAMENT MODAL
+======================================== */
+.tournament-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;
+}
+
+.tournament-modal {
+  background: white;
+  border-radius: 30px;
+  max-width: 950px;
+  width: 100%;
+  max-height: 95vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.4s ease;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: #222;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close:hover {
+  background: white;
+  transform: rotate(90deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  padding: 40px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.modal-header h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.modal-status {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-body {
+  padding: 40px;
+}
+
+.modal-image {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.modal-description {
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+.modal-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.modal-detail {
+  display: flex;
+  gap: 18px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.modal-detail:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.modal-detail svg {
+  color: #667eea;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.modal-detail strong {
+  display: block;
+  color: #222;
+  margin-bottom: 6px;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.modal-detail p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.modal-footer {
+  padding: 35px 40px;
+  background: #f8f9fa;
+  display: flex;
+  gap: 18px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.modal-register-btn,
+.modal-contact-btn {
+  flex: 1;
+  padding: 18px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-register-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.modal-register-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+}
+
+.modal-contact-btn {
+  background: white;
+  border: 3px solid #667eea;
+  color: #667eea;
+}
+
+.modal-contact-btn:hover {
+  background: #f8f9fa;
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   REGISTRATION FORM MODAL - COMPLETE REDESIGN
+======================================== */
+.registration-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  padding: 20px;
+  animation: fadeInOverlay 0.4s ease;
+  overflow-y: auto;
+}
+
+.registration-modal {
+  background: white;
+  border-radius: 35px;
+  max-width: 900px !important; /* Force larger width */
+  width: 95% !important;
+  max-height: 95vh;
+  overflow: hidden;
+  position: relative;
+  animation: modalSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-close:hover {
+  background: white;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  color: #764ba2;
+}
+
+.registration-header {
+  padding: 50px 40px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  height: 350px
+}
+
+.registration-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  animation: rotateBackground 20s linear infinite;
+}
+
+.registration-header h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  animation: slideInFromLeft 0.6s ease-out 0.2s both;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.registration-subtitle {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: inline-block;
+  animation: slideInFromRight 0.6s ease-out 0.4s both;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.registration-body {
+  padding: 40px 50px !important; /* Larger padding */
+  overflow-y: auto;
+  flex: 1;
+  background: #ffffff;
+}
+
+.registration-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.registration-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.registration-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px !important; /* Increased gap */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeInUp 0.5s ease-out both;
+  width: 100%;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.15s; }
+.form-group:nth-child(3) { animation-delay: 0.2s; }
+.form-group:nth-child(4) { animation-delay: 0.25s; }
+.form-group:nth-child(5) { animation-delay: 0.3s; }
+.form-group:nth-child(6) { animation-delay: 0.35s; }
+
+.form-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1a1a2e !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.required {
+  color: #ff6b6b !important;
+  font-size: 1.4rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 18px 22px;
+  border: 3px solid #667eea !important;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  background: #ffffff !important;
+  color: #1a1a2e !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #999999 !important;
+  opacity: 0.8;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: #764ba2 !important;
+  background: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #667eea !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.2);
+  transform: translateY(-3px);
+}
+
+.form-select {
+  appearance: none;
+  background-color: #ffffff !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3E%3Cpath fill='%23667eea' d='M1 1l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 22px center;
+  background-size: 14px;
+  padding-right: 55px;
+  color: #1a1a2e !important;
+  cursor: pointer;
+}
+
+.form-select option {
+  color: #1a1a2e !important;
+  background: white;
+  padding: 10px;
+}
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #ff6b6b !important;
+  background: #fff5f5 !important;
+  animation: shakeError 0.5s ease;
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.error-message {
+  color: #ff6b6b !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: #fff5f5;
+  border-radius: 10px;
+  border-left: 4px solid #ff6b6b;
+  animation: slideInError 0.3s ease;
+}
+
+@keyframes slideInError {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-message::before {
+  content: '⚠';
+  font-size: 1.1rem;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+  font-family: inherit;
+}
+
+.form-message {
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.form-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.form-message.success {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border: 3px solid #28a745;
+  box-shadow: 0 10px 30px rgba(40, 167, 69, 0.25);
+}
+
+.form-message.error {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  border: 3px solid #dc3545;
+  box-shadow: 0 10px 30px rgba(220, 53, 69, 0.25);
+}
+
+.message-icon {
+  font-size: 3rem;
+  animation: bounce 1s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.message-content {
+  position: relative;
+  z-index: 2;
+}
+
+.message-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  color: #222;
+  font-weight: 800;
+}
+
+.message-content p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.registration-submit-btn {
+  width: 100%;
+  padding: 22px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 900;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease-out 0.4s both;
+  margin-top: 10px;
+}
+
+.registration-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.registration-submit-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.registration-submit-btn:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+.registration-submit-btn:active:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.registration-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   CTA SECTION - REDESIGNED
+======================================== */
+.programs-cta {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.programs-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 3.5rem;
+  color: white;
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cta-content p {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 20px 50px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn.primary {
+  background: white;
+  color: #667eea;
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: white;
+  border: 3px solid white;
+}
+
+.cta-btn.secondary:hover {
+  background: white;
+  color: #667eea;
+  transform: translateY(-5px);
+}
+
+/* Responsive CTA */
+@media (max-width: 768px) {
+  .programs-cta {
+    padding: 80px 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btn {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    padding: 16px;
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .tournaments-grid,
+  .events-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+
+  .modal-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Landscape & Tablet Portrait (481px - 768px) */
+@media (max-width: 768px) {
+  .programs-hero {
+    margin-top: 70px; /* Adjusted for mobile navbar height */
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .programs-tabs-section {
+    top: 70px; /* Adjusted for mobile navbar */
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+  }
+
+  .programs-tabs {
+    gap: 10px;
+    padding: 20px 15px;
+  }
+
+  .tab-btn {
+    padding: 14px 25px;
+    font-size: 1rem;
+  }
+
+  .tab-btn span {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 2.3rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .tournaments-grid,
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .past-tournament-body {
+    grid-template-columns: 1fr;
+  }
+
+  .tournament-meta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+  }
+
+  .modal-image img {
+    height: 250px;
+  }
+
+  .cta-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .cta-content p {
+    font-size: 1.15rem;
+  }
+}
+
+/* Mobile Portrait (320px - 480px) */
+@media (max-width: 480px) {
+  .programs-hero {
+    margin-top: 60px; /* Adjusted for smaller mobile navbar */
+    height: 45vh;
+    min-height: 350px;
+  }
+
+  .programs-tabs-section {
+    top: 60px; /* Adjusted for smaller mobile navbar */
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    margin-left: -21px; 
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-badge {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .programs-tabs {
+    padding: 15px 10px;
+  }
+
+  .tab-btn {
+    padding: 12px 20px;
+  }
+
+  .section-header {
+    padding-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .tournaments-section,
+  .events-section,
+  .past-tournaments-section {
+    padding-bottom: 60px;
+  }
+
+  .tournament-image {
+    height: 220px;
+  }
+
+  .tournament-content {
+    padding: 25px;
+  }
+
+  .tournament-title {
+    font-size: 1.4rem;
+  }
+
+  .tournament-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .register-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .event-card {
+    padding: 25px;
+  }
+
+  .event-title {
+    font-size: 1.3rem;
+  }
+
+  .event-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .past-tournament-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
+
+  .tournament-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+
+  .tournament-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .past-tournament-body {
+    padding: 25px;
+  }
+
+  .tournament-modal {
+    border-radius: 20px;
+    max-height: 90vh;
+  }
+
+  .modal-close {
+    width: 40px;
+    height: 40px;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+  }
+
+  .modal-header {
+    padding: 30px 25px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .modal-body {
+    padding: 25px;
+  }
+
+  .modal-image img {
+    height: 200px;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+  }
+
+  .modal-footer {
+    padding: 25px;
+  }
+
+  .modal-register-btn,
+  .modal-contact-btn {
+    padding: 16px;
+    font-size: 1rem;
+  }
+
+  .programs-cta {
+    padding: 80px 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+  }
+}
+
+/* Extra Small Devices (< 320px) */
+@media (max-width: 320px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .tournament-title,
+  .event-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrolling for modal */
+.tournament-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tournament-modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.tournament-modal::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 10px;
+}
+
+.tournament-modal::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
