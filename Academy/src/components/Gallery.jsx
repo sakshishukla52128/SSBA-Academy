@@ -17,7 +17,16 @@ import Gallery2 from '../assets/Gallery2.png';
 import maincoach from '../assets/maincoach.png';
 import maincoachprize from '../assets/maincoachprize.png';
 import coach from '../assets/coach.png';
-
+import new1 from '../assets/new1.png';
+import new3 from '../assets/new3.png';
+import new4 from '../assets/new4.png';
+import new5 from '../assets/new5.png';
+import new6 from '../assets/new6.png';
+import new7 from '../assets/new7.png';
+import new8 from '../assets/new8.png';
+import new9 from '../assets/new9.png';
+import new10 from '../assets/new10.png';
+import new11 from '../assets/new11.png';
 const galleryData = [
   { 
     id: 1, 
@@ -116,7 +125,57 @@ const galleryData = [
     title: "Coaching Excellence", 
     category: "Coaching",
     description: "Professional coaching at its best"
-  }
+  },
+   { 
+    id: 15, 
+    src: new9, 
+    title: "Expert Guidance", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
+   { 
+    id: 16, 
+    src: new3, 
+    title: "Expert Guidance", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
+   { 
+    id: 17, 
+    src: new4, 
+    title: "Expert Guidance", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
+
+   { 
+    id: 19, 
+    src: new6, 
+    title: "Expert Guidance", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
+   { 
+    id: 20, 
+    src: new7, 
+    title: "Expert Guidance", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
+ { 
+    id: 21, 
+    src: new10, 
+    title: "Expert Guidance", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
+   { 
+    id: 22, 
+    src: new11, 
+    title: "Expert Guidance", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
 ];
 
 const categories = ["All", "Training", "Coaching", "Team", "Awards"];

@@ -24,7 +24,7 @@ import {
   FaCheckCircle,
   FaHandshake
 } from 'react-icons/fa';
-import Gallery2 from '../assets/Gallery2.png';
+import Gallery2 from '../assets/new12.png';
 import seconedcoach from '../assets/secondcoach.png';
 import priya1 from '../assets/priya1.png';
 import Gallery from '../assets/Gallery4.png';
@@ -34,13 +34,13 @@ import Gallery6 from '../assets/allmembers.png';
 const coachesData = [
   {
     name: 'Simran Shukla',
-    role: 'Head Coach & Certified Umpire',
-    experience: '5+ Years',
+    role: 'Founder & Head coach',
+    experience: '6+ Years',
     specialization: 'Singles & Doubles Strategy',
     imgSrc: Gallery2,
-    certifications: ['NIS Certified Coach', 'National Level Player', 'BWF Level 2 Coach', 'BWF Certified Umpire'],
-    specializations: ['Advanced Techniques', 'Match Strategy', 'Mental Conditioning', 'Youth Development'],
-    achievements: ['50+ Tournament Wins', 'State Champion 2018', 'Trained 500+ Students', 'Official Umpire for State Level Tournaments'],
+    certifications: ['NIS Certified Coach', 'National Level Player',],
+    specializations: ['Advanced Techniques', 'Match Strategy', 'Mental Conditioning', 'Youth Development','Doubles Strategy'],
+    achievements: ['50+ Tournament Wins', 'State Champion 2018', 'Trained 60+ Students'],
     social: {
       linkedin: '#',
       twitter: '#',
@@ -49,7 +49,7 @@ const coachesData = [
     umpiringServices: {
       available: true,
       experience: '2+ Years Umpiring Experience',
-      tournaments: ['State Level Championships', 'District Tournaments', 'School & College Events', 'Corporate Badminton'],
+      tournaments: ['State Level Championships', 'District Tournaments', 'School & College Events', 'Corporate Badminton','Tournament Organizer'],
       contact: '+91-9876543210',
 
       services: [
@@ -57,19 +57,20 @@ const coachesData = [
         'Tournament Officiating',
         'Score Keeping & Recording',
         'Rules Consultation',
-        'Player Briefing & Guidance'
+        'Player Briefing & Guidance',
+        
       ]
     }
   },
   {
     name: 'Priya Ramakrishna',
-    role: 'Senior Coach & Match Official',
-    experience: '5+ Years',
+    role: 'Assistant Coach ',
+    experience: '4+ Years',
     specialization: 'Doubles & Physical Training',
     imgSrc: priya1,
-    certifications: ['BWF Level 1 Coach', 'Fitness Trainer', 'CPR Certified', 'Badminton Official'],
+    certifications: ['NIS Certified Coach', 'Fitness Trainer'],
     specializations: ['Doubles Strategy', 'Strength Training', 'Agility Development', 'Net Play'],
-    achievements: ['District Champion', '100+ Students Trained', 'Fitness Expert', 'Tournament Official'],
+    achievements: ['District Champion', '50+ Students Trained', 'Fitness Expert', 'Tournament Official'],
     social: {
       linkedin: '#',
       twitter: '#',
@@ -92,13 +93,13 @@ const coachesData = [
   },
   {
     name: 'Juhi Agrawal',
-    role: 'Assistant Coach & Tournament Coordinator',
+    role: 'district level player and assistant coach at SSBA & dedicated coach at Villa Theresa',
     experience: '3+ Years',
     specialization: 'Kids & Beginners Training',
     imgSrc: seconedcoach,
     certifications: ['BWF Level 1 Coach', 'Child Development Specialist', 'Tournament Management'],
     specializations: ['Kids Coaching', 'Beginner Training', 'Fundamentals', 'Technique Building'],
-    achievements: ['Youth Coach of the Year', '200+ Kids Trained', 'Tournament Organizer', 'Youth Event Official'],
+    achievements: ['Youth Coach of the Year', '30+ Kids Trained','Youth Event Official'],
     social: {
       linkedin: '#',
       twitter: '#',
@@ -106,11 +107,11 @@ const coachesData = [
     },
     umpiringServices: {
       available: true,
-      experience: '2+ Years Umpiring Experience',
+      experience: 'district-level umpiring,2+ Years Umpiring Experience contributing to fair play and competitive standards in the sport',
       tournaments: ['Kids Tournaments', 'Beginner Events', 'School Competitions', 'Fun Matches'],
       contact: '+91-9876543212',
       services: [
-        'Kids Tournament Umpiring',
+        'Coordinator of Badminton Events, assisting in the organization and management of tournaments',
         'Beginner Match Officiating',
         'Event Coordination',
         'Fair Play Monitoring',

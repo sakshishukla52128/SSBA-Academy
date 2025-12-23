@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Contact.css';
 
 const Contact = () => {
+  // ======================
+  // STATES
+  // ======================
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,6 +13,12 @@ const Contact = () => {
     message: '',
     inquiryType: 'general'
   });
+
+  const [userLocation, setUserLocation] = useState({
+    latitude: null,
+    longitude: null
+  });
+
   const [isVisible, setIsVisible] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const sectionRef = useRef(null);
@@ -21,10 +30,10 @@ const Contact = () => {
       icon: '📍',
       title: 'Our Location',
       details: [
-      'Central Railway, Behind Gymkhana',
-      'Opp. Poddar College',
-      'Matunga Railway Colony',
-      'Matunga (E), Mumbai – 400019'
+        'Central Railway, Behind Gymkhana',
+        'Opp. Poddar College',
+        'Matunga Railway Colony',
+        'Matunga (E), Mumbai – 400019'
       ],
       color: 'blue'
     },
@@ -48,9 +57,9 @@ const Contact = () => {
       ],
       color: 'orange'
     },
-   
   ];
-// FAQ data
+
+  // FAQ data
   const faqs = [
     {
       id: 1,
@@ -74,84 +83,119 @@ const Contact = () => {
     }
   ];
 
-  // Intersection Observer
+  // ======================
+  // GET USER LOCATION (BROWSER API)
+  // ======================
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          });
+          console.log(
+            "User Location:",
+            position.coords.latitude,
+            position.coords.longitude
+          );
+        },
+        (error) => {
+          console.error("Location Error:", error.message);
+        }
+      );
+    } else {
+      alert("Geolocation not supported in this browser");
+    }
+  }, []);
+
+  // ======================
+  // INTERSECTION OBSERVER
+  // ======================
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
+          if (entry.isIntersecting) setIsVisible(true);
         });
       },
       { threshold: 0.2 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // Handle form input changes
+  // ======================
+  // HANDLE INPUT CHANGE
+  // ======================
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  // ======================
+  // HANDLE FORM SUBMIT
+  // ======================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    const response = await fetch("http://localhost:5000/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const payload = {
+      ...formData,
+      location: userLocation
+    };
 
-    const data = await response.json();
+    console.log("Sending Data:", payload);
 
-    if (data.success) {
-      alert("Message Sent Successfully!");
-      setFormSubmitted(true);
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
 
-      setTimeout(() => {
-        setFormSubmitted(false);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-          inquiryType: "general",
-        });
-      }, 2000);
-    } else {
-      alert("Something went wrong!");
+      const data = await response.json();
+
+      if (data.success) {
+        alert("Message Sent Successfully!");
+        setFormSubmitted(true);
+
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            subject: '',
+            message: '',
+            inquiryType: 'general'
+          });
+        }, 2000);
+      } else {
+        alert("Something went wrong!");
+      }
+    } catch (error) {
+      console.error("Server Error:", error);
+      alert("Server Error");
     }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Server Error");
-  }
-};
+  };
 
-
-  // Open WhatsApp
+  // ======================
+  // WHATSAPP
+  // ======================
   const openWhatsApp = () => {
     const phone = "+919082701081";
     const message = "Hello, I'm interested in Shuttle Smash Badminton Academy!";
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
+  // ======================
+  // JSX
+  // ======================
   return (
     <section ref={sectionRef} className="contact-section">
       <div className="container">
+
         {/* Header */}
         <div className={`section-header ${isVisible ? 'animate' : ''}`}>
           <div className="contact-icon">📞</div>
@@ -182,11 +226,11 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Main Content Grid */}
         <div className={`main-content-grid ${isVisible ? 'animate' : ''}`}>
-          {/* Contact Form */}
+          {/* CONTACT FORM */}
           <div className="contact-form-container">
             <h3 className="form-title">Send Us a Message</h3>
+
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Full Name *</label>
@@ -194,10 +238,10 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
+                  placeholder="Full Name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  placeholder="Enter your full name"
                 />
               </div>
 
@@ -208,10 +252,10 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
+                    placeholder="Email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    placeholder="your.email@example.com"
                   />
                 </div>
                 <div className="form-group">
@@ -220,10 +264,10 @@ const Contact = () => {
                     type="tel"
                     id="phone"
                     name="phone"
+                    placeholder="Phone"
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    placeholder="+91 98765 43210"
                   />
                 </div>
               </div>
@@ -250,9 +294,9 @@ const Contact = () => {
                     type="text"
                     id="subject"
                     name="subject"
+                    placeholder="Subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    placeholder="Brief subject of your message"
                   />
                 </div>
               </div>
@@ -262,12 +306,20 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
+                  placeholder="Your Message"
+                  rows="5"
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  rows="5"
-                  placeholder="Tell us how we can help you achieve your badminton goals..."
                 ></textarea>
+              </div>
+
+              {/* LOCATION PREVIEW */}
+              <div style={{ marginBottom: "15px", fontSize: "14px", color: "#666" }}>
+                📍 User Location:
+                {userLocation.latitude
+                  ? ` ${userLocation.latitude.toFixed(4)}, ${userLocation.longitude.toFixed(4)}`
+                  : " Fetching..."}
               </div>
 
               <button type="submit" className="submit-btn" disabled={formSubmitted}>
@@ -287,8 +339,8 @@ const Contact = () => {
             <div className="quick-contact">
               <h4>Quick Contact</h4>
               <div className="quick-actions">
-                <button className="quick-btn call-btn" onClick={() => window.open('tel:+91 90827 01081')}>
-                  📞 Call Now:+91 90827 01081
+                <button className="quick-btn call-btn" onClick={() => window.open('tel:+919082701081')}>
+                  📞 Call Now: +91 90827 01081
                 </button>
                 <button className="quick-btn whatsapp-btn" onClick={openWhatsApp}>
                   💬 WhatsApp
@@ -298,8 +350,6 @@ const Contact = () => {
                 </button>
               </div>
             </div>
-
-          
 
             {/* FAQs */}
             <div className="faq-section">
@@ -314,20 +364,17 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Map & Location */}
-        <div className={`map-section ${isVisible ? 'animate' : ''}`}>
-          <h3 className="map-title">Find Us Here</h3>
-          <div className="map-container">
-            <div className="map-placeholder">
-              <div className="map-icon">🗺️</div>
-              <h4>Interactive Map Coming Soon</h4>
-              <p>123 Sports Complex, Badminton Lane<br />City Center, Mumbai - 400001</p>
-              <button className="directions-btn">
-                📍 Get Directions
-              </button>
-            </div>
-          </div>
-        </div>
+       <div className="map-container">
+  <iframe
+    title="SSBA Location"
+    src="https://www.google.com/maps?q=Central%20Railway%20Behind%20Gymkhana%20Matunga%20Mumbai&output=embed"
+    width="100%"
+    height="350"
+    style={{ border: 0, borderRadius: "20px" }}
+    allowFullScreen=""
+    loading="lazy"
+  ></iframe>
+</div>
 
         {/* Emergency Contact */}
         <div className={`emergency-contact ${isVisible ? 'animate' : ''}`}>

@@ -7,18 +7,18 @@ import {
   FaCalendarCheck, 
   FaUsers,
   FaTrophy,
-  FaCar,
+  FaParking,
   FaWifi,
   FaCoffee,
   FaMedkit,
   FaDumbbell,
   FaVideo,
   FaShieldAlt,
-  FaRuler,
-  FaTemperatureLow,
-  FaFan,
   FaStar,
-  FaCheckCircle
+  FaCheckCircle,
+  FaShoppingCart,
+  FaTools,
+  FaHandshake
 } from 'react-icons/fa';
 import { GiTennisRacket, GiShuttlecock, GiSportMedal } from 'react-icons/gi';
 import './Facilities.css';
@@ -32,35 +32,35 @@ const Facilities = () => {
       id: 1,
       icon: <FaTableTennis />,
       title: "Professional Courts",
-      description: "International standard courts with premium flooring",
+      description: "Well-maintained standard courts for serious practice",
       details: [
-        "6 International BWF Standard Courts (13.4m × 6.1m)",
-        "Professional PVC Mat flooring with shock absorption",
-        "Wooden courts available for advanced players",
-        "Temperature-controlled indoor environment (24-26°C)",
-        "Non-slip surface with professional court markings",
-        "Court dividers for privacy during practice",
-        "High-quality nets with professional tension"
+        "Standard sized badminton courts",
+        "Good quality flooring for comfortable play",
+        "Proper court markings and measurements",
+        "Adequate space between courts",
+        "Well-maintained nets and poles",
+        "Clean playing environment",
+        "Regular court maintenance"
       ],
-      features: ["BWF Approved", "Shock Absorbent", "Climate Controlled"],
+      features: ["Standard Courts", "Well-Maintained", "Proper Setup"],
       color: "#2563EB",
       highlight: true
     },
     {
       id: 2,
       icon: <FaLightbulb />,
-      title: "Advanced Lighting",
-      description: "Tournament-grade illumination system",
+      title: "Quality Lighting",
+      description: "Proper illumination for comfortable play",
       details: [
-        "300 Lux LED lighting (BWF Tournament Standard)",
-        "Anti-glare technology with uniform distribution",
-        "Zero shadow zones across all courts",
-        "Adjustable brightness settings",
-        "Energy-efficient with motion sensors",
-        "Emergency backup lighting system",
-        "Professional-grade light reflectors"
+        "Good quality LED lighting system",
+        "Adequate brightness for evening sessions",
+        "Even light distribution across courts",
+        "Energy-efficient lighting",
+        "Properly positioned lights",
+        "Reliable lighting system",
+        "Emergency lighting available"
       ],
-      features: ["300 Lux LED", "Shadow-Free", "Energy Efficient"],
+      features: ["LED Lighting", "Even Distribution", "Energy Efficient"],
       color: "#F59E0B",
       highlight: true
     },
@@ -68,68 +68,68 @@ const Facilities = () => {
       id: 3,
       icon: <FaUserGraduate />,
       title: "Expert Coaching",
-      description: "Learn from certified professionals",
+      description: "Learn from experienced coaches",
       details: [
-        "BWF Level 2 & 3 Certified Coaches",
-        "Personalized training programs (Beginner to Advanced)",
-        "Video analysis with instant feedback",
-        "Fitness and agility training modules",
-        "Junior development programs (Age 6+)",
-        "Tournament preparation and strategy sessions",
-        "Regular assessment and progress tracking"
+        "Experienced and qualified coaches",
+        "Personalized training programs",
+        "Focus on technique improvement",
+        "Beginner to advanced level training",
+        "Junior coaching programs",
+        "Regular practice sessions",
+        "Game strategy guidance"
       ],
-      features: ["BWF Certified", "Video Analysis", "All Levels"],
+      features: ["Experienced Coaches", "All Levels", "Personalized"],
       color: "#10B981"
     },
     {
       id: 4,
       icon: <FaRestroom />,
-      title: "Premium Amenities",
-      description: "Luxurious changing and comfort facilities",
+      title: "Basic Amenities",
+      description: "Essential facilities for players",
       details: [
-        "Spacious air-conditioned changing rooms",
-        "Steam room and sauna facilities",
-        "Premium shower cabins with hot water",
-        "Personal lockers with digital locks",
-        "Towels and basic toiletries provided",
-        "Hair dryer and grooming stations",
-        "Separate male/female facilities"
+        "Clean changing rooms",
+        "Basic shower facilities",
+        "Drinking water available",
+        "Seating area for players",
+        "Storage space for bags",
+        "Clean washrooms",
+        "Ventilated spaces"
       ],
-      features: ["AC Rooms", "Steam Room", "Premium Showers"],
+      features: ["Changing Rooms", "Showers", "Water Facility"],
       color: "#8B5CF6"
     },
     {
       id: 5,
       icon: <FaUsers />,
       title: "Community & Events",
-      description: "Vibrant player community and regular events",
+      description: "Regular matches and community building",
       details: [
-        "Weekly social tournaments and leagues",
-        "Monthly professional exhibition matches",
-        "Player ranking system and championships",
-        "Corporate tournament hosting",
-        "Birthday party packages",
-        "Team building events",
-        "Annual academy championships"
+        "Regular practice matches",
+        "Monthly tournaments",
+        "Inter-academy competitions",
+        "Player meetups",
+        "Skill development sessions",
+        "Group training activities",
+        "Friendly matches"
       ],
-      features: ["Weekly Tournaments", "Ranking System", "Corporate Events"],
+      features: ["Monthly Events", "Community", "Regular Matches"],
       color: "#EC4899"
     },
     {
       id: 6,
       icon: <FaTrophy />,
-      title: "Tournament Ready",
-      description: "Fully equipped for professional tournaments",
+      title: "Competition Ready",
+      description: "Prepare for local tournaments",
       details: [
-        "BWF-approved tournament setup",
-        "Professional scoring system and display",
-        "Player briefing and warm-up areas",
-        "Umpire and line judge facilities",
-        "Live streaming capabilities",
-        "Spectator seating for 200+ people",
-        "Award ceremony stage and equipment"
+        "Competition-style practice sessions",
+        "Match simulation training",
+        "Tournament preparation guidance",
+        "Local competition information",
+        "Player ranking within academy",
+        "Performance tracking",
+        "Competition rules education"
       ],
-      features: ["BWF Approved", "Live Streaming", "200+ Seating"],
+      features: ["Match Practice", "Tournament Prep", "Performance Track"],
       color: "#DC2626"
     }
   ];
@@ -137,45 +137,31 @@ const Facilities = () => {
   const additionalFacilities = [
     {
       id: 7,
-      icon: <FaCar />,
-      title: "Parking & Accessibility",
-      details: ["Ample parking for 100+ vehicles", "Valet parking service", "Electric vehicle charging stations", "Wheelchair accessible throughout", "Easy public transport access"],
+      icon: <FaParking />,
+      title: "Parking Facility",
+      details: ["Adequate parking space", "Secure parking area", "Convenient location", "Easy access", "Safe environment"],
       color: "#6366F1"
     },
     {
       id: 8,
       icon: <FaWifi />,
-      title: "Digital Facilities",
-      details: ["High-speed WiFi (100 Mbps)", "Live match streaming", "Digital score tracking", "Mobile app for bookings", "Virtual coaching sessions"],
+      title: "Basic Amenities",
+      details: ["WiFi connectivity", "Water cooler", "Basic first aid", "Seating lounge", "Secure environment"],
       color: "#06B6D4"
     },
     {
       id: 9,
       icon: <FaCoffee />,
-      title: "Café & Lounge",
-      details: ["Healthy sports café", "Protein shakes and energy drinks", "Viewing gallery with live matches", "Workstations with charging ports", "Meeting rooms for rent"],
+      title: "Refreshment Area",
+      details: ["Water facility", "Basic snacks available", "Resting area", "Seating for breaks", "Cooling area"],
       color: "#D97706"
     },
     {
       id: 10,
       icon: <FaMedkit />,
-      title: "Sports Medicine",
-      details: ["On-call physiotherapist", "Sports massage therapy", "Injury prevention workshops", "First aid with trained staff", "Tie-up with sports hospitals"],
+      title: "Basic First Aid",
+      details: ["First aid kit available", "Basic injury support", "Emergency contacts", "Safety guidelines", "Injury prevention tips"],
       color: "#059669"
-    },
-    {
-      id: 11,
-      icon: <FaDumbbell />,
-      title: "Fitness Area",
-      details: ["Cardio equipment zone", "Strength training area", "Stretching and warm-up zone", "Personal trainer available", "Recovery and cool-down area"],
-      color: "#7C3AED"
-    },
-    {
-      id: 12,
-      icon: <FaVideo />,
-      title: "Media & Analysis",
-      details: ["Match recording service", "Professional video analysis", "Slow-motion replay system", "Player performance dashboard", "Social media highlights creation"],
-      color: "#DB2777"
     }
   ];
 
@@ -186,86 +172,82 @@ const Facilities = () => {
       title: "Equipment Guidance",
       description: "Expert advice on selecting the right equipment",
       services: [
-        "Personalized racket selection guidance",
-        "String tension recommendations",
-        "Grip size and type consultation",
-        "Equipment maintenance tips",
-        "Brand comparisons and recommendations"
+        "Free consultation on equipment selection",
+        "Guidance on racket selection based on playing style",
+        "Advice on string tension and grip size",
+        "Information on shuttlecock types",
+        "Tips on equipment maintenance"
       ],
-      contactInfo: "Consult with Coach Simran for equipment advice",
-      color: "#3B82F6",
-      contactNumber: "+91-XXXXXXXXXX"
+      note: "We help you choose equipment that fits your budget and skill level",
+      color: "#3B82F6"
     },
     {
       id: 'e2',
-      icon: <GiShuttlecock />,
-      title: "Quality Shuttlecocks",
-      description: "Tournament-grade shuttlecocks available",
+      icon: <FaShoppingCart />,
+      title: "Equipment Purchase Assistance",
+      description: "Get quality equipment at good prices",
       services: [
-        "Yonex AS-50 (Tournament Grade)",
-        "Yonex AS-30 (Professional)",
-        "Carlton Gold (Training)",
-        "Nylon shuttles for practice",
-        "Bulk purchase options available"
+        "Access to quality equipment from trusted suppliers",
+        "Better prices through our partnerships",
+        "Genuine product guarantee",
+        "Multiple brands and price ranges",
+        "Bulk purchase discounts for regular players"
       ],
-      contactInfo: "Contact academy for shuttlecock requirements",
-      color: "#10B981",
-      contactNumber: "+91-XXXXXXXXXX"
+      note: "Bring your own equipment or purchase through us at competitive rates",
+      color: "#10B981"
     },
     {
       id: 'e3',
-      icon: <FaShieldAlt />,
-      title: "Accessories & Safety Gear",
-      description: "Complete badminton accessories",
-      services: [
-        "Knee caps and elbow supports",
-        "Ankle guards and wrist bands",
-        "Sweat bands and towels",
-        "Professional badminton bags",
-        "Grip tapes and overgrips"
-      ],
-      contactInfo: "All safety gear available at academy",
-      color: "#F59E0B",
-      contactNumber: "+91-XXXXXXXXXX"
-    },
-    {
-      id: 'e4',
-      icon: <GiSportMedal />,
-      title: "Professional Services",
-      description: "Equipment maintenance and services",
+      icon: <FaTools />,
+      title: "Equipment Services",
+      description: "Maintenance and repair services",
       services: [
         "Racket restringing service",
         "Grip replacement",
-        "Equipment repair consultation",
-        "Custom racket modifications",
-        "Regular maintenance check-ups"
+        "Basic equipment repairs",
+        "Maintenance guidance",
+        "Equipment check-ups"
       ],
-      contactInfo: "Contact Coach for equipment services",
-      color: "#8B5CF6",
-      contactNumber: "+91-XXXXXXXXXX"
+      note: "Basic maintenance services available at the academy",
+      color: "#F59E0B"
+    },
+    {
+      id: 'e4',
+      icon: <GiShuttlecock />,
+      title: "Shuttlecock Supply",
+      description: "Quality shuttlecocks available",
+      services: [
+        "Regular supply of shuttlecocks",
+        "Quality brands available",
+        "Bulk purchase options",
+        "Practice shuttlecocks",
+        "Tournament-grade options"
+      ],
+      note: "Players can bring their own or purchase from us",
+      color: "#8B5CF6"
     }
   ];
 
-  const premiumFeatures = [
+  const valueProposition = [
     {
-      icon: <FaRuler />,
-      title: "Court Specifications",
-      details: "BWF Standard 13.4m × 6.1m courts with professional line markings"
-    },
-    {
-      icon: <FaTemperatureLow />,
-      title: "Climate Control",
-      details: "Maintained at optimal 24-26°C for best playing conditions"
-    },
-    {
-      icon: <FaFan />,
-      title: "Air Circulation",
-      details: "Advanced ventilation system for fresh air circulation"
+      icon: <FaHandshake />,
+      title: "Player-Focused",
+      details: "We focus on player development with practical facilities"
     },
     {
       icon: <FaShieldAlt />,
-      title: "Safety Standards",
-      details: "All equipment meets international safety standards"
+      title: "Safe Environment",
+      details: "Clean, safe, and well-maintained playing area"
+    },
+    {
+      icon: <FaStar />,
+      title: "Quality Coaching",
+      details: "Experienced coaches providing personalized attention"
+    },
+    {
+      icon: <FaUsers />,
+      title: "Supportive Community",
+      details: "Friendly environment for players of all levels"
     }
   ];
 
@@ -275,15 +257,21 @@ const Facilities = () => {
         
         {/* Header Section */}
         <div className="facilities-header">
-          <div className="badge">🏸 WORLD-CLASS FACILITIES</div>
+          <div className="badge">🏸 PRACTICAL FACILITIES</div>
           <h1 className="facilities-title">
-            Premium Badminton 
-            <span className="highlight"> Infrastructure</span>
+            Well-Equipped Badminton 
+            <span className="highlight"> Training Center</span>
           </h1>
           <p className="facilities-subtitle">
-            Experience professional-grade facilities designed for champions. 
-            From international standard courts to expert coaching support, we provide everything you need for excellence.
+            A clean, safe, and well-maintained facility focused on player development. 
+            We provide essential amenities and expert coaching to help you improve your game.
           </p>
+          <div className="practical-note">
+            <p>
+              <strong>Note:</strong> We maintain a practical approach - players need to bring their own equipment 
+              (rackets, shoes, sportswear). We provide guidance and assistance for purchasing quality equipment at good prices.
+            </p>
+          </div>
         </div>
 
         {/* Tabs Navigation */}
@@ -293,19 +281,19 @@ const Facilities = () => {
               className={`tab ${activeTab === 'facilities' ? 'active' : ''}`}
               onClick={() => setActiveTab('facilities')}
             >
-              <FaTableTennis /> Main Facilities
+              <FaTableTennis /> Our Facilities
             </button>
             <button 
               className={`tab ${activeTab === 'equipment' ? 'active' : ''}`}
               onClick={() => setActiveTab('equipment')}
             >
-              <GiTennisRacket /> Equipment & Gear
+              <GiTennisRacket /> Equipment Guide
             </button>
             <button 
-              className={`tab ${activeTab === 'features' ? 'active' : ''}`}
-              onClick={() => setActiveTab('features')}
+              className={`tab ${activeTab === 'value' ? 'active' : ''}`}
+              onClick={() => setActiveTab('value')}
             >
-              <FaStar /> Premium Features
+              <FaStar /> Why Choose Us
             </button>
           </div>
         </div>
@@ -315,10 +303,10 @@ const Facilities = () => {
           
           {activeTab === 'facilities' && (
             <>
-              {/* Featured Facilities Grid */}
+              {/* Main Facilities Grid */}
               <div className="section-title">
-                <h2>Professional Facilities</h2>
-                <p>State-of-the-art infrastructure for serious players</p>
+                <h2>Our Training Facilities</h2>
+                <p>Essential amenities for effective badminton training</p>
               </div>
               
               <div className="facilities-grid">
@@ -329,7 +317,7 @@ const Facilities = () => {
                     onClick={() => setActiveCard(activeCard === facility.id ? null : facility.id)}
                     style={{ '--card-color': facility.color }}
                   >
-                    {facility.highlight && <div className="premium-badge">PREMIUM</div>}
+                    {facility.highlight && <div className="practical-badge">ESSENTIAL</div>}
                     
                     <div className="card-header">
                       <div className="card-icon" style={{ backgroundColor: facility.color + '20', color: facility.color }}>
@@ -360,7 +348,7 @@ const Facilities = () => {
                       </div>
                       
                       <button className="toggle-details-btn" style={{ color: facility.color }}>
-                        {activeCard === facility.id ? 'Show Less' : 'View All Features'}
+                        {activeCard === facility.id ? 'Show Less' : 'View Details'}
                         <span className="arrow">{activeCard === facility.id ? '↑' : '↓'}</span>
                       </button>
                     </div>
@@ -373,7 +361,7 @@ const Facilities = () => {
               {/* Additional Facilities */}
               <div className="section-title">
                 <h2>Additional Amenities</h2>
-                <p>Everything for a complete training experience</p>
+                <p>Supporting facilities for your comfort</p>
               </div>
               
               <div className="additional-facilities">
@@ -393,25 +381,29 @@ const Facilities = () => {
                   </div>
                 ))}
               </div>
+
+              {/* Important Note */}
+              
             </>
           )}
 
           {activeTab === 'equipment' && (
             <div className="equipment-section">
               <div className="section-title">
-                <h2>Equipment Guidance & Support</h2>
-                <p>Get expert advice and access to professional badminton equipment</p>
+                <h2>Equipment Guidance & Purchase Assistance</h2>
+                <p>We help you get the right equipment at good prices</p>
               </div>
               
               <div className="guidance-banner">
                 <div className="guidance-content">
                   <GiTennisRacket className="guidance-icon" />
                   <div>
-                    <h3>Professional Equipment Consultation</h3>
+                    <h3>Practical Equipment Support</h3>
                     <p>
-                      Our certified coaches provide personalized equipment guidance based on your playing style, 
-                      skill level, and physical attributes. We recommend only the best quality equipment from 
-                      trusted brands.
+                       we offer comprehensive guidance to help you purchase 
+                      quality badminton gear. Our coaches provide personalized advice based on your playing 
+                      style, level, and budget. We have partnerships with suppliers to help you get genuine 
+                      equipment at competitive prices.
                     </p>
                   </div>
                 </div>
@@ -431,7 +423,7 @@ const Facilities = () => {
                     </div>
                     
                     <div className="service-content">
-                      <h4>Available Services:</h4>
+                      <h4>What We Offer:</h4>
                       <ul className="service-list">
                         {service.services.map((item, idx) => (
                           <li key={idx}>
@@ -441,96 +433,149 @@ const Facilities = () => {
                         ))}
                       </ul>
                       
-                      <div className="contact-info">
-                        <div className="contact-label">
-                          <strong>For inquiries:</strong>
+                      {service.note && (
+                        <div className="service-note">
+                          <p>{service.note}</p>
                         </div>
-                        <div className="contact-details">
-                          <p>{service.contactInfo}</p>
-                          <div className="contact-cta">
-                            <span className="phone-label">Contact Coach:</span>
-                            <a href={`tel:${service.contactNumber}`} className="phone-number">
-                              {service.contactNumber}
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="brands-section">
-                <h3>Recommended Brands We Work With</h3>
-                <div className="brands-grid">
-                  <div className="brand-card">
-                    <div className="brand-logo">YONEX</div>
-                    <p>Official equipment partner</p>
-                    <span className="brand-tag">Premium</span>
+              <div className="purchase-info">
+                <div className="purchase-content">
+                  <h3>How to Purchase Equipment</h3>
+                  <div className="purchase-steps">
+                    <div className="step">
+                      <div className="step-number">1</div>
+                      <div className="step-content">
+                        <h4>Consultation</h4>
+                        <p>Get free advice from our coaches on what equipment suits you</p>
+                      </div>
+                    </div>
+                    <div className="step">
+                      <div className="step-number">2</div>
+                      <div className="step-content">
+                        <h4>Options & Prices</h4>
+                        <p>We show you various options with price ranges from our suppliers</p>
+                      </div>
+                    </div>
+                    <div className="step">
+                      <div className="step-number">3</div>
+                      <div className="step-content">
+                        <h4>Place Order</h4>
+                        <p>Place your order through us for better prices and genuine products</p>
+                      </div>
+                    </div>
+                    <div className="step">
+                      <div className="step-number">4</div>
+                      <div className="step-content">
+                        <h4>Delivery</h4>
+                        <p>Receive your equipment at the academy or arrange pickup</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="brand-card">
-                    <div className="brand-logo">LI-NING</div>
-                    <p>Professional gear</p>
-                    <span className="brand-tag">Performance</span>
+                </div>
+              </div>
+
+              <div className="player-responsibility">
+                <h3>Player's Responsibility</h3>
+                <div className="responsibility-grid">
+                  <div className="responsibility-card">
+                    <div className="resp-icon">🎾</div>
+                    <h4>Bring Your Racket</h4>
+                    <p>Players must bring their own rackets for training</p>
                   </div>
-                  <div className="brand-card">
-                    <div className="brand-logo">VICTOR</div>
-                    <p>Tournament quality</p>
-                    <span className="brand-tag">Competition</span>
+                  <div className="responsibility-card">
+                    <div className="resp-icon">👟</div>
+                    <h4>Proper Shoes</h4>
+                    <p>Non-marking sports shoes are mandatory</p>
                   </div>
-                  <div className="brand-card">
-                    <div className="brand-logo">CARLTON</div>
-                    <p>Professional shuttlecocks</p>
-                    <span className="brand-tag">Classic</span>
+                  <div className="responsibility-card">
+                    <div className="resp-icon">👕</div>
+                    <h4>Sportswear</h4>
+                    <p>Appropriate athletic clothing required</p>
+                  </div>
+                  <div className="responsibility-card">
+                    <div className="resp-icon">💧</div>
+                    <h4>Hydration</h4>
+                    <p>Bring your own water bottle</p>
                   </div>
                 </div>
               </div>
             </div>
           )}
 
-          {activeTab === 'features' && (
-            <div className="features-section">
+          {activeTab === 'value' && (
+            <div className="value-section">
               <div className="section-title">
-                <h2>Premium Facility Features</h2>
-                <p>What makes our academy stand out</p>
+                <h2>Why Choose Our Academy</h2>
+                <p>Practical benefits for serious badminton players</p>
               </div>
               
-              <div className="features-highlights">
-                {premiumFeatures.map((feature, index) => (
-                  <div key={index} className="feature-highlight-card">
-                    <div className="feature-icon-wrapper">
-                      {feature.icon}
+              <div className="value-propositions">
+                {valueProposition.map((value, index) => (
+                  <div key={index} className="value-card">
+                    <div className="value-icon-wrapper" style={{ color: '#2563EB' }}>
+                      {value.icon}
                     </div>
-                    <div className="feature-content">
-                      <h3>{feature.title}</h3>
-                      <p>{feature.details}</p>
+                    <div className="value-content">
+                      <h3>{value.title}</h3>
+                      <p>{value.details}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="standards-section">
-                <h3>Our Quality Standards</h3>
-                <div className="standards-grid">
-                  <div className="standard-card">
-                    <div className="standard-number">01</div>
-                    <h4>International Compliance</h4>
-                    <p>All facilities meet BWF international standards</p>
+              <div className="realistic-benefits">
+                <h3>What You Actually Get</h3>
+                <div className="benefits-grid">
+                  <div className="benefit-card">
+                    <h4>✓ Quality Court Time</h4>
+                    <p>Well-maintained courts with proper lighting</p>
                   </div>
-                  <div className="standard-card">
-                    <div className="standard-number">02</div>
-                    <h4>Regular Maintenance</h4>
-                    <p>Daily court maintenance and equipment checks</p>
+                  <div className="benefit-card">
+                    <h4>✓ Expert Coaching</h4>
+                    <p>Personal attention from experienced coaches</p>
                   </div>
-                  <div className="standard-card">
-                    <div className="standard-number">03</div>
-                    <h4>Safety First</h4>
-                    <p>Regular safety audits and emergency protocols</p>
+                  <div className="benefit-card">
+                    <h4>✓ Regular Practice</h4>
+                    <p>Structured training sessions and matches</p>
                   </div>
-                  <div className="standard-card">
-                    <div className="standard-number">04</div>
-                    <h4>Hygiene Standards</h4>
-                    <p>Daily cleaning and sanitization of all areas</p>
+                  <div className="benefit-card">
+                    <h4>✓ Community</h4>
+                    <p>Play with motivated players of similar levels</p>
+                  </div>
+                  <div className="benefit-card">
+                    <h4>✓ Equipment Guidance</h4>
+                    <p>Help in choosing the right gear for your game</p>
+                  </div>
+                  <div className="benefit-card">
+                    <h4>✓ Affordable Rates</h4>
+                    <p>Reasonable pricing for quality training</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="transparent-pricing">
+                <h3>Transparent & Practical Approach</h3>
+                <div className="pricing-content">
+                  <div className="pricing-point">
+                    <FaCheckCircle className="point-icon" />
+                    <span>No hidden luxury charges - you pay for what matters: court time and coaching</span>
+                  </div>
+                  <div className="pricing-point">
+                    <FaCheckCircle className="point-icon" />
+                    <span>Focus on skill development rather than unnecessary amenities</span>
+                  </div>
+                  <div className="pricing-point">
+                    <FaCheckCircle className="point-icon" />
+                    <span>Flexible training plans to suit different budgets and schedules</span>
+                  </div>
+                  <div className="pricing-point">
+                    <FaCheckCircle className="point-icon" />
+                    <span>Equipment purchase assistance for better deals</span>
                   </div>
                 </div>
               </div>
@@ -541,35 +586,42 @@ const Facilities = () => {
         {/* Call to Action */}
         <div className="facilities-cta">
           <div className="cta-content">
-            <h2>Experience Our Premium Facilities</h2>
-            <p>Book a visit to see our world-class infrastructure and meet our expert coaches</p>
+            <h2>Start Your Badminton Journey</h2>
+            <p>Join our academy for focused training with practical facilities and expert guidance</p>
             
             <div className="cta-stats">
               <div className="stat">
-                <div className="stat-number">6</div>
-                <div className="stat-label">Professional Courts</div>
+                <div className="stat-number">Quality</div>
+                <div className="stat-label">Courts & Lighting</div>
               </div>
               <div className="stat">
-                <div className="stat-number">300</div>
-                <div className="stat-label">Lux Lighting</div>
+                <div className="stat-number">Expert</div>
+                <div className="stat-label">Coaching Staff</div>
               </div>
               <div className="stat">
-                <div className="stat-number">200+</div>
-                <div className="stat-label">Seating Capacity</div>
+                <div className="stat-number">Regular</div>
+                <div className="stat-label">Practice Sessions</div>
               </div>
               <div className="stat">
-                <div className="stat-number">24/7</div>
-                <div className="stat-label">Security & Support</div>
+                <div className="stat-number">Equipment</div>
+                <div className="stat-label">Purchase Guidance</div>
               </div>
             </div>
             
             <div className="cta-buttons">
               <button className="cta-button primary" onClick={() => window.location.href = '/#contact'}>
-                <FaCalendarCheck /> Schedule Visit
+                <FaCalendarCheck /> Book Trial Session
               </button>
-              <button className="cta-button secondary" onClick={() => window.location.href = '/about#coaches'}>
-                <FaUserGraduate /> Meet Our Coaches
+              <button className="cta-button secondary" onClick={() => window.location.href = '/#pricing'}>
+                <FaUserGraduate /> View Training Plans
               </button>
+            </div>
+            
+            <div className="cta-note">
+              <p>
+                <strong>Remember:</strong> You need to bring your own equipment. We provide guidance for purchases and 
+                basic amenities for your comfort during training.
+              </p>
             </div>
           </div>
         </div>

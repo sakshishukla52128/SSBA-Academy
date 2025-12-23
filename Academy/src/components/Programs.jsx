@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import './Programs.css';
 import { FaCalendarAlt, FaTrophy, FaMapMarkerAlt, FaClock, FaUsers, FaMedal, FaChevronRight } from 'react-icons/fa';
+import { Contact } from 'lucide-react';
 
 // Upcoming Tournaments Data
 const upcomingTournaments = [
   {
     id: 1,
-    title: "SSBA Summer Championship 2024",
-    date: "June 15-18, 2024",
-    location: "SSBA Sports Complex, Mumbai",
+    title: "SSBA Tournaments 2026",
+    date: "31st & 1 January , 2026",
+    location: " Badminton Rush, Borivali West",
     category: "All Age Groups",
-    registrationDeadline: "June 10, 2024",
-    prizes: "₹50,000 Total Prize Pool",
+    registrationDeadline: "January 25, 2026",
+   
     participants: "150+ Expected",
     status: "Registration Open",
     description: "Annual summer championship featuring singles and doubles matches across all age categories.",
     image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
     featured: true
+
   },
   {
     id: 2,
     title: "Inter-Academy Junior Cup",
-    date: "July 5-7, 2024",
-    location: "District Sports Arena",
+    date: "April 5-7, 2026",
+    location: "Central Railway, Behind Gymkhana,Opp. Poddar College,Matunga Railway Colony,Matunga (E), Mumbai – 400019",
     category: "Under 14 & Under 16",
     registrationDeadline: "June 30, 2024",
     prizes: "Trophies & Certificates",
@@ -34,12 +36,12 @@ const upcomingTournaments = [
   },
   {
     id: 3,
-    title: "SSBA Monthly Open Tournament",
-    date: "August 12-13, 2024",
-    location: "SSBA Training Center",
+    title: "SSBA summer camp",
+    date: "April , 2026",
+    location: "Central Railway, Behind Gymkhana,Opp. Poddar College,Matunga Railway Colony,Matunga (E), Mumbai – 400019",
     category: "Open (All Levels)",
     registrationDeadline: "August 8, 2024",
-    prizes: "₹25,000 Prize Pool",
+    prizes: "₹10,000 Prize Pool",
     participants: "100+ Expected",
     status: "Registration Open",
     description: "Monthly open tournament for all skill levels. Great opportunity for match practice.",
@@ -54,10 +56,10 @@ const pastTournaments = [
     id: 1,
     title: "SSBA Spring Championship 2024",
     date: "March 20-23, 2024",
-    location: "SSBA Sports Complex",
+    location: "Badminton Rush, Borivali West",
     winners: ["Rahul Sharma (Men's Singles)", "Priya Patel (Women's Singles)"],
     participants: "120 Players",
-    highlights: "Record-breaking attendance with exceptional performances"
+    highlights: "Record-breaking attendance with exceptional performances",
   },
   {
     id: 2,
@@ -503,7 +505,7 @@ function Programs() {
                   <div className="modal-detail">
                     <FaTrophy />
                     <div>
-                      <strong>Prize Pool</strong>
+                      <p><strong></strong>Contact:8469948210 | 8591035370 | 8828294784 | 9012612676</p>
                       <p>{selectedTournament.prizes}</p>
                     </div>
                   </div>
@@ -525,17 +527,7 @@ function Programs() {
               </div>
             </div>
 
-            <div className="modal-footer">
-              <button 
-                className="modal-register-btn"
-                onClick={() => openRegistrationForm('tournament', selectedTournament)}
-              >
-                Register for Tournament
-              </button>
-              <button className="modal-contact-btn">
-                Contact for Details
-              </button>
-            </div>
+            
           </div>
         </div>
       )}
