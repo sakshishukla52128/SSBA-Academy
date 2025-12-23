@@ -27,6 +27,9 @@ import new8 from '../assets/new8.png';
 import new9 from '../assets/new9.png';
 import new10 from '../assets/new10.png';
 import new11 from '../assets/new11.png';
+import winner from '../assets/winner.png';
+import winner2 from '../assets/winner2.png';
+import winner3 from '../assets/winner3.png';
 const galleryData = [
   { 
     id: 1, 
@@ -144,7 +147,7 @@ const galleryData = [
     id: 17, 
     src: new4, 
     title: "Expert Guidance", 
-    category: "Coaching",
+    category: "Guidance by Coach",
     description: "Expert guidance from certified coaches"
   },
 
@@ -158,21 +161,42 @@ const galleryData = [
    { 
     id: 20, 
     src: new7, 
-    title: "Expert Guidance", 
-    category: "Coaching",
+    title: "Tournament winner", 
+    category: "Tournaments",
     description: "Expert guidance from certified coaches"
   },
  { 
     id: 21, 
     src: new10, 
-    title: "Expert Guidance", 
-    category: "Coaching",
+    title: "Tournament winner", 
+    category: "Tournaments",
     description: "Expert guidance from certified coaches"
   },
    { 
     id: 22, 
     src: new11, 
     title: "Expert Guidance", 
+    category: "Head Coach",
+    description: "Expert guidance from certified coaches"
+  },
+     { 
+    id: 23, 
+    src: winner, 
+    title: "Winner", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
+     { 
+    id: 24, 
+    src: winner2, 
+    title: "Winner", 
+    category: "Coaching",
+    description: "Expert guidance from certified coaches"
+  },
+     { 
+    id: 25, 
+    src: winner3, 
+    title: "Winner", 
     category: "Coaching",
     description: "Expert guidance from certified coaches"
   },
