@@ -249,7 +249,7 @@ function Aboutus() {
             </p>
             <div className="hero-stats">
               <div className="stat-item">
-                <span className="stat-number">5+</span>
+                <span className="stat-number">6+</span>
                 <span className="stat-label">Years</span>
               </div>
               <div className="stat-item">
@@ -663,7 +663,7 @@ function Aboutus() {
                   <div className="stat-icon-circle">
                     <FaChalkboardTeacher className="stat-icon" />
                   </div>
-                  <div className="stat-number">5+</div>
+                  <div className="stat-number">6+</div>
                   <div className="stat-label">Expert Coaches</div>
                   <p className="stat-description">Professional coaching staff</p>
                 </div>
@@ -671,7 +671,8 @@ function Aboutus() {
                   <div className="stat-icon-circle">
                     <FaMedal className="stat-icon" />
                   </div>
-                  <div className="stat-number">5+</div>
+                  <div className="stat-number">6+</div>
+
                   <div className="stat-label">Years Experience</div>
                   <p className="stat-description">Of badminton excellence</p>
                 </div>
@@ -936,7 +937,7 @@ function Aboutus() {
                 <span>Tournaments</span>
               </div>
               <div className="cta-stat">
-                <strong>5+</strong>
+                <strong>6+</strong>
                 <span>Years</span>
               </div>
               <div className="cta-stat">
