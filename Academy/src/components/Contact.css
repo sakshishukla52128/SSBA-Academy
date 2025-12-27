@@ -120,8 +120,10 @@
   font-size: 3rem;
   font-weight: 800;
   background: var(--gradient-primary);
+   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
   margin-bottom: 15px;
   line-height: 1.2;
 }
@@ -318,8 +320,10 @@
   color: var(--dark);
   margin-bottom: 10px;
   background: var(--gradient-primary);
+    background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent; 
 }
 
 .form-subtitle {
