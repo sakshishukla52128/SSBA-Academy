@@ -1,27 +1,37 @@
 // components/Home.jsx
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './Home.css';
-import { FaInstagram, FaFacebook } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom'; // Add this import
-// Import your images correctly - using exact filenames from your assets folder
+import { 
+  FaInstagram, 
+  FaFacebook, 
+  FaWhatsapp,
+  FaBars,
+  FaTimes,
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaChevronLeft,
+  FaChevronRight
+} from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
-import coach from '../assets/coach.png';
+// Import your images
+import coach from '../assets/student.png';
 import groupphoto from '../assets/groupphoto.png';
 import maincoach from '../assets/maincoach.png';
 import maincoachprize from '../assets/maincoachprize.png';
 import Gallery from '../assets/Gallery.png';
 import Gallery2 from '../assets/Gallery2.png';
 
-// ...existing code...
-
 const Home = () => {
-  const navigate = useNavigate(); // Add this hook
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [animatedStats, setAnimatedStats] = useState(false);
   const [isVisible, setIsVisible] = useState({});
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const sectionRefs = useRef({});
 
-  // Enhanced form state management
+  // Form state management
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -78,9 +88,8 @@ const Home = () => {
       overlay: 'success'
     }
   ];
- 
-  // Stats data for animated counters
-  
+
+  // Stats data
   const statsData = React.useMemo(() => [
     { 
       number: 60, 
@@ -118,38 +127,35 @@ const Home = () => {
 
   // Coach information
   const mainCoach = {
-  name: "Simran Shukla",
-  image: maincoach,
-  additionalImages: [Gallery,Gallery2], 
-  experience: "5+ Years",
-  certification: "NIS-Certified Badminton Coach",
-  message: "Helping players grow with discipline, dedication and passion.",
-  
-  achievements: [
-    "National-Level Badminton Player with strong competitive experience",
-    "NIS-Certified Badminton Coach with proven coaching expertise",
-    "Founder & Owner of SSBA (Shuttle Smash Badminton Academy)",
-    "Specialized in Singles & Doubles Training",
-    "Expert in Footwork, Fitness Conditioning, and Match Strategy",
-    "Experience in Training Beginner to Advanced Level Players",
-    "Focus on Discipline, Technique, and Mental Strength",
-    "Successfully trained players for District, State, and National Tournaments",
-    "Conducts Professional Coaching Camps & Tournament Training Programs",
-    "Dedicated to Developing Future Champions in Badminton"
-  ]
-};
+    name: "Simran Shukla",
+    image: maincoach,
+    additionalImages: [Gallery, Gallery2], 
+    experience: "5+ Years",
+    certification: "NIS-Certified Badminton Coach",
+    message: "Helping players grow with discipline, dedication and passion.",
+    
+    achievements: [
+      "National-Level Badminton Player with strong competitive experience",
+      "NIS-Certified Badminton Coach with proven coaching expertise",
+      "Founder & Owner of SSBA (Shuttle Smash Badminton Academy)",
+      "Specialized in Singles & Doubles Training",
+      "Expert in Footwork, Fitness Conditioning, and Match Strategy",
+      "Experience in Training Beginner to Advanced Level Players",
+      "Focus on Discipline, Technique, and Mental Strength",
+      "Successfully trained players for District, State, and National Tournaments",
+      "Conducts Professional Coaching Camps & Tournament Training Programs",
+      "Dedicated to Developing Future Champions in Badminton"
+    ]
+  };
 
-  // Add state for showing more achievements
   const [showAllAchievements, setShowAllAchievements] = useState(false);
-
-  // Academy timings
   const academyTimings = [
     { day: "Tuesday", time: "2:00 PM - 3:30 PM" },
     { day: "Thursday", time: "2:00 PM - 3:30 PM" },
     { day: "Friday", time: "2:00 PM - 3:30 PM" }
   ];
 
-  // Fix: useCallback to memoize the function
+  // Slide navigation
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   }, [slides.length]);
@@ -162,10 +168,14 @@ const Home = () => {
     setCurrentSlide(index);
   };
 
+  // Toggle mobile menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   // Animated counters
   const [counters, setCounters] = useState(statsData.map(() => 0));
 
-  // Animate counters function - MOVED BEFORE useEffect
   const animateCounters = useCallback(() => {
     statsData.forEach((stat, index) => {
       const duration = 2000;
@@ -205,7 +215,6 @@ const Home = () => {
           if (entry.isIntersecting) {
             setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
             
-            // Trigger stats animation
             if (entry.target.id === 'stats-section' && !animatedStats) {
               setAnimatedStats(true);
               animateCounters();
@@ -213,7 +222,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     Object.values(sectionRefs.current).forEach(ref => {
@@ -222,6 +231,18 @@ const Home = () => {
 
     return () => observer.disconnect();
   }, [animateCounters, animatedStats]);
+
+  // Close menu when clicking outside on mobile
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('.mobile-menu-btn') && !event.target.closest('.mobile-nav-links')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMenuOpen]);
 
   // Smooth scroll function
   const scrollToSection = (sectionId) => {
@@ -236,11 +257,12 @@ const Home = () => {
         behavior: 'smooth'
       });
     }
+    setIsMenuOpen(false);
   };
 
   // WhatsApp function
   const openWhatsApp = () => {
-    const phone = "+919876543210";
+    const phone = "+919082701081";
     const message = "Hello, I'm interested in Shuttle Smash Badminton Academy. Can I get more information?";
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
   };
@@ -293,7 +315,6 @@ const Home = () => {
       [name]: value
     }));
     
-    // Clear error when user starts typing
     if (formErrors[name]) {
       setFormErrors(prev => ({
         ...prev,
@@ -302,7 +323,7 @@ const Home = () => {
     }
   };
 
-  // Enhanced form submission with backend API
+  // Form submission
   const handleTrialSubmit = async (e) => {
     e.preventDefault();
     
@@ -315,7 +336,6 @@ const Home = () => {
     setSubmitStatus('');
     
     try {
-      // Send data to backend API
       const response = await fetch("http://localhost:5000/api/trial-form", {
         method: "POST",
         headers: { 
@@ -325,7 +345,6 @@ const Home = () => {
       });
 
       if (response.ok) {
-        // Success
         setSubmitStatus('success');
         setFormData({
           name: '',
@@ -339,12 +358,9 @@ const Home = () => {
         });
         setFormErrors({});
         
-        // Auto-hide success message after 5 seconds
         setTimeout(() => setSubmitStatus(''), 5000);
       } else {
-        // Error from server
         setSubmitStatus('error');
-        console.error('Server error:', response.statusText);
       }
       
     } catch (error) {
@@ -362,6 +378,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+
       {/* Hero Slider Section */}
       <section className="hero-slider">
         {slides.map((slide, index) => (
@@ -370,7 +387,7 @@ const Home = () => {
             className={`slide ${index === currentSlide ? 'active' : ''} ${slide.overlay}`}
           >
             {/* Parallax Background */}
-            <div className="slide-background parallax">
+            <div className="slide-background">
               <div 
                 className="background-image"
                 style={{ backgroundImage: `url(${slide.image})` }}
@@ -382,7 +399,6 @@ const Home = () => {
             {/* Slide Content */}
             <div className="slide-content">
               <div className="content-wrapper">
-                {/* Text Content */}
                 <div className="text-content">
                   <h1 className="academy-title">{slide.title}</h1>
                   <h2 className="punchline">{slide.punchline}</h2>
@@ -405,69 +421,49 @@ const Home = () => {
 
                   {/* Feature Highlights */}
                   <div className="feature-highlights">
-                    {slide.overlay === 'coaching' && (
-                      <div className="features">
-                        <span className="feature-tag">Expert Coaches</span>
-                        <span className="feature-tag">Personal Training</span>
-                        <span className="feature-tag">Skill Development</span>
-                      </div>
-                    )}
-                    {slide.overlay === 'action' && (
-                      <div className="features">
-                        <span className="feature-tag">Live Matches</span>
-                        <span className="feature-tag">Intensive Drills</span>
-                        <span className="feature-tag">Performance Analysis</span>
-                      </div>
-                    )}
-                    {slide.overlay === 'champions' && (
-                      <div className="features">
-                        <span className="feature-tag">Tournament Players</span>
-                        <span className="feature-tag">Pro Techniques</span>
-                        <span className="feature-tag">Elite Training</span>
-                      </div>
-                    )}
-                    {slide.overlay === 'success' && (
-                      <div className="features">
-                        <span className="feature-tag">Trophy Winners</span>
-                        <span className="feature-tag">Success Stories</span>
-                        <span className="feature-tag">Proven Results</span>
-                      </div>
-                    )}
+                    <div className="features">
+                      {slide.overlay === 'coaching' && (
+                        <>
+                          <span className="feature-tag">Expert Coaches</span>
+                          <span className="feature-tag">Personal Training</span>
+                          <span className="feature-tag">Skill Development</span>
+                        </>
+                      )}
+                      {slide.overlay === 'action' && (
+                        <>
+                          <span className="feature-tag">Live Matches</span>
+                          <span className="feature-tag">Intensive Drills</span>
+                          <span className="feature-tag">Performance Analysis</span>
+                        </>
+                      )}
+                      {slide.overlay === 'champions' && (
+                        <>
+                          <span className="feature-tag">Tournament Players</span>
+                          <span className="feature-tag">Pro Techniques</span>
+                          <span className="feature-tag">Elite Training</span>
+                        </>
+                      )}
+                      {slide.overlay === 'success' && (
+                        <>
+                          <span className="feature-tag">Trophy Winners</span>
+                          <span className="feature-tag">Success Stories</span>
+                          <span className="feature-tag">Proven Results</span>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Quick Info Cards */}
-            <div className="quick-info">
-              {slide.overlay === 'coaching' && (
-                <div className="info-card">
-                  <div className="info-icon">👨‍🏫</div>
-                  <div className="info-text">
-                    <strong>Expert Coaching</strong>
-                    <span>Learn from certified professionals</span>
-                  </div>
-                </div>
-              )}
-              {slide.overlay === 'champions' && (
-                <div className="info-card">
-                  <div className="info-icon">🏆</div>
-                  <div className="info-text">
-                    <strong>Champion Training</strong>
-                    <span>Learn from tournament winners</span>
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
         ))}
 
-        {/* Navigation Controls */}
-        <button className="slider-nav prev" onClick={prevSlide}>
-          ‹
+        {/* Improved Navigation Arrows */}
+        <button className="slider-nav prev" onClick={prevSlide} aria-label="Previous slide">
+          <FaChevronLeft />
         </button>
-        <button className="slider-nav next" onClick={nextSlide}>
-          ›
+        <button className="slider-nav next" onClick={nextSlide} aria-label="Next slide">
+          <FaChevronRight />
         </button>
 
         {/* Slide Indicators */}
@@ -477,6 +473,7 @@ const Home = () => {
               key={index}
               className={`indicator ${index === currentSlide ? 'active' : ''}`}
               onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
@@ -494,12 +491,12 @@ const Home = () => {
             }
           }}
         >
-          <div className="scroll-arrow"></div>
+          
           <span>Explore More</span>
         </div>
       </section>
 
-      {/* Home Stats Section - UNIQUE CLASSES */}
+      {/* Home Stats Section */}
       <section 
         id="stats-section" 
         ref={setSectionRef('stats-section')}
@@ -527,13 +524,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Meet Our Head Coach Section - COMPLETELY REDESIGNED */}
+      {/* Meet Our Head Coach Section */}
       <section 
         id="about-coach" 
         ref={setSectionRef('about-coach')}
         className={`home-coach-section ${isVisible['about-coach'] ? 'visible' : ''}`}
       >
-        <div className="container home-coach-wrapper">
+        <div className="container">
           <div className="home-coach-header">
             <h2 className="section-title">Meet Our Head Coach</h2>
             <p className="section-subtitle">Learn from a national-level player and NIS-certified coach</p>
@@ -543,7 +540,11 @@ const Home = () => {
             {/* Left Side - Coach Image & Info */}
             <div className="home-coach-left">
               <div className="home-main-coach-img">
-                <img src={mainCoach.image} alt={mainCoach.name} />
+                <img 
+                  src={mainCoach.image} 
+                  alt={mainCoach.name} 
+                  loading="lazy"
+                />
                 <div className="home-coach-overlay">
                   <div className="home-experience-tag">
                     <span className="tag-icon">🏸</span>
@@ -555,7 +556,11 @@ const Home = () => {
               <div className="home-coach-mini-gallery">
                 {mainCoach.additionalImages.map((img, index) => (
                   <div key={index} className="home-mini-img">
-                    <img src={img} alt={`Coach ${index + 1}`} />
+                    <img 
+                      src={img} 
+                      alt={`Coach achievement ${index + 1}`} 
+                      loading="lazy"
+                    />
                   </div>
                 ))}
               </div>
@@ -571,28 +576,31 @@ const Home = () => {
                 </div>
               </div>
 
-              <p className="home-coach-quote">"{mainCoach.message}"</p>
+              <div className="home-coach-quote-wrapper">
+                <div className="quote-icon">"</div>
+                <p className="home-coach-quote">{mainCoach.message}</p>
+              </div>
 
               <div className="home-coach-quick-stats">
                 <div className="home-quick-stat">
                   <div className="stat-icon">📅</div>
                   <div className="stat-content">
                     <strong>10+</strong>
-                    <span>Years</span>
+                    <span>Years Experience</span>
                   </div>
                 </div>
                 <div className="home-quick-stat">
                   <div className="stat-icon">👥</div>
                   <div className="stat-content">
                     <strong>500+</strong>
-                    <span>Students</span>
+                    <span>Students Trained</span>
                   </div>
                 </div>
                 <div className="home-quick-stat">
                   <div className="stat-icon">🏅</div>
                   <div className="stat-content">
                     <strong>50+</strong>
-                    <span>Wins</span>
+                    <span>Tournament Wins</span>
                   </div>
                 </div>
               </div>
@@ -603,24 +611,13 @@ const Home = () => {
                   Key Achievements
                 </h4>
                 <div className="home-achievements-grid">
-                  {mainCoach.achievements.slice(0, 6).map((achievement, index) => (
+                  {mainCoach.achievements.slice(0, showAllAchievements ? mainCoach.achievements.length : 6).map((achievement, index) => (
                     <div key={index} className="home-achievement-box">
                       <span className="home-check">✓</span>
                       <span>{achievement}</span>
                     </div>
                   ))}
                 </div>
-                
-                {showAllAchievements && mainCoach.achievements.length > 6 && (
-                  <div className="home-hidden-achievements">
-                    {mainCoach.achievements.slice(6).map((achievement, index) => (
-                      <div key={index} className="home-achievement-box">
-                        <span className="home-check">✓</span>
-                        <span>{achievement}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
                 
                 {mainCoach.achievements.length > 6 && (
                   <div className="home-more-achievements">
@@ -656,13 +653,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Training Programs Section - COMPLETELY REDESIGNED */}
+      {/* Training Programs Section */}
       <section 
         id="programs" 
         ref={setSectionRef('programs')}
         className={`programs-section ${isVisible['programs'] ? 'visible' : ''}`}
       >
-        <div className="container programs-container">
+        <div className="container">
           <div className="programs-header">
             <h2 className="section-title">Our Training Programs</h2>
             <p className="section-subtitle">Choose the perfect program tailored to your badminton journey</p>
@@ -818,195 +815,109 @@ const Home = () => {
                   Join Weekend
                 </button>
               </div>
-
             </div>
-          </div>
-
-          {/* Pricing CTA */}
-          <div className="pricing-cta-box">
-            <div className="pricing-icon">💰</div>
-            <h3>Get Detailed Pricing & Packages</h3>
-            <p>Contact us for customized packages tailored to your needs</p>
-            <a href="tel:+919082701081" className="pricing-call-btn">
-              📞 Call: +91 90827 01081
-            </a>
           </div>
         </div>
       </section>
 
-      {/* Student Testimonials Section - NEW */}
+      {/* Student Testimonials Section */}
       <section 
         id="testimonials" 
         ref={setSectionRef('testimonials')}
         className={`testimonials-section ${isVisible['testimonials'] ? 'visible' : ''}`}
       >
-        <div className="container testimonials-container">
+        <div className="container">
           <h2 className="section-title">What Our Students Say</h2>
           <p className="section-subtitle">Real experiences from our badminton family</p>
           
           <div className="testimonials-grid">
-            {/* Testimonial 1 */}
-            <div className="testimonial-card">
-              <div className="quote-icon">"</div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">
-                  "SSBA has completely transformed my game! The coaches are incredibly professional and supportive. I went from a beginner to competing in district tournaments in just 8 months!"
-                </p>
-                <div className="testimonial-author">
-                  
-                  <div className="author-info">
-                    <h4>Rahul Mehta</h4>
-                    <p>Intermediate Student</p>
-                    <div className="rating">⭐⭐⭐⭐⭐</div>
+            {[
+              {
+                text: "SSBA has completely transformed my game! The coaches are incredibly professional and supportive. I went from a beginner to competing in district tournaments in just 8 months!",
+                author: "Rahul Mehta",
+                role: "Intermediate Student",
+                rating: 5
+              },
+              {
+                text: "Best badminton academy in the area! My daughter has been training here for 2 years. The improvement in her skills and confidence is remarkable. Highly recommend SSBA!",
+                author: "Priya Sharma",
+                role: "Parent of Student",
+                rating: 5,
+                featured: true
+              },
+              {
+                text: "The training facilities are top-notch and the coaching is world-class. I've learned so much about technique, strategy, and mental strength. Worth every penny!",
+                author: "Arjun Singh",
+                role: "Advanced Student",
+                rating: 5
+              },
+              {
+                text: "Joined for fitness but fell in love with badminton! The morning batch is perfect for working professionals. Coaches are patient and motivating.",
+                author: "Neha Patel",
+                role: "Working Professional",
+                rating: 5
+              },
+              {
+                text: "My son loves the kids batch! The coaches make learning fun while teaching proper techniques. Great environment for children to learn and grow.",
+                author: "Amit Kumar",
+                role: "Parent of Kid Student",
+                rating: 5
+              },
+              {
+                text: "The personalized attention and structured training program helped me achieve my tournament goals. SSBA is the best investment for serious players!",
+                author: "Vikram Reddy",
+                role: "Competitive Player",
+                rating: 5
+              }
+            ].map((testimonial, index) => (
+              <div 
+                key={index} 
+                className={`testimonial-card ${testimonial.featured ? 'featured' : ''}`}
+              >
+                <div className="quote-icon">"</div>
+                <div className="testimonial-content">
+                  <p className="testimonial-text">{testimonial.text}</p>
+                  <div className="testimonial-author">
+                    <div className="author-info">
+                      <h4>{testimonial.author}</h4>
+                      <p>{testimonial.role}</p>
+                      <div className="rating">
+                        {'⭐'.repeat(testimonial.rating)}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Testimonial 2 */}
-            <div className="testimonial-card featured">
-              <div className="quote-icon">"</div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">
-                  "Best badminton academy in the area! My daughter has been training here for 2 years. The improvement in her skills and confidence is remarkable. Highly recommend SSBA!"
-                </p>
-                <div className="testimonial-author">
-                 
-                  <div className="author-info">
-                    <h4>Priya Sharma</h4>
-                    <p>Parent of Student</p>
-                    <div className="rating">⭐⭐⭐⭐⭐</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 3 */}
-            <div className="testimonial-card">
-              <div className="quote-icon">"</div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">
-                  "The training facilities are top-notch and the coaching is world-class. I've learned so much about technique, strategy, and mental strength. Worth every penny!"
-                </p>
-                <div className="testimonial-author">
-                  
-                  <div className="author-info">
-                    <h4>Arjun Singh</h4>
-                    <p>Advanced Student</p>
-                    <div className="rating">⭐⭐⭐⭐⭐</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 4 */}
-            <div className="testimonial-card">
-              <div className="quote-icon">"</div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">
-                  "Joined for fitness but fell in love with badminton! The morning batch is perfect for working professionals. Coaches are patient and motivating."
-                </p>
-                <div className="testimonial-author">
-                 
-                  <div className="author-info">
-                    <h4>Neha Patel</h4>
-                    <p>Working Professional</p>
-                    <div className="rating">⭐⭐⭐⭐⭐</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 5 */}
-            <div className="testimonial-card">
-              <div className="quote-icon">"</div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">
-                  "My son loves the kids batch! The coaches make learning fun while teaching proper techniques. Great environment for children to learn and grow."
-                </p>
-                <div className="testimonial-author">
-                  
-                  <div className="author-info">
-                    <h4>Amit Kumar</h4>
-                    <p>Parent of Kid Student</p>
-                    <div className="rating">⭐⭐⭐⭐⭐</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 6 */}
-            <div className="testimonial-card">
-              <div className="quote-icon">"</div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">
-                  "The personalized attention and structured training program helped me achieve my tournament goals. SSBA is the best investment for serious players!"
-                </p>
-                <div className="testimonial-author">
-                 
-                  <div className="author-info">
-                    <h4>Vikram Reddy</h4>
-                    <p>Competitive Player</p>
-                    <div className="rating">⭐⭐⭐⭐⭐</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section - NEW */}
+      {/* Why Choose Us Section */}
       <section 
         id="why-choose-us" 
         ref={setSectionRef('why-choose-us')}
         className={`why-choose-section ${isVisible['why-choose-us'] ? 'visible' : ''}`}
       >
-        <div className="container why-choose-container">
+        <div className="container">
           <h2 className="section-title">Why Choose SSBA Academy?</h2>
           
           <div className="features-showcase">
-            <div className="feature-box">
-              <div className="feature-number">01</div>
-              <div className="feature-icon">👨‍🏫</div>
-              <h3>Expert Coaches</h3>
-              <p>NIS-certified professional coaches with national-level playing experience</p>
-            </div>
-
-            <div className="feature-box">
-              <div className="feature-number">02</div>
-              <div className="feature-icon">🏟️</div>
-              <h3>Premium Facilities</h3>
-              <p>State-of-the-art courts with professional-grade equipment and lighting</p>
-            </div>
-
-            <div className="feature-box">
-              <div className="feature-number">03</div>
-              <div className="feature-icon">🎯</div>
-              <h3>Personalized Training</h3>
-              <p>Custom training plans designed for individual goals and skill levels</p>
-            </div>
-
-            <div className="feature-box">
-              <div className="feature-number">04</div>
-              <div className="feature-icon">📊</div>
-              <h3>Progress Tracking</h3>
-              <p>Regular assessments and detailed progress reports for every student</p>
-            </div>
-
-            <div className="feature-box">
-              <div className="feature-number">05</div>
-              <div className="feature-icon">🏆</div>
-              <h3>Tournament Support</h3>
-              <p>Preparation, registration, and coaching support for competitions</p>
-            </div>
-
-            <div className="feature-box">
-              <div className="feature-number">06</div>
-              <div className="feature-icon">💪</div>
-              <h3>Fitness Programs</h3>
-              <p>Comprehensive fitness and conditioning programs for peak performance</p>
-            </div>
+            {[
+              { number: "01", icon: "👨‍🏫", title: "Expert Coaches", description: "NIS-certified professional coaches with national-level playing experience" },
+              { number: "02", icon: "🏟️", title: "Premium Facilities", description: "State-of-the-art courts with professional-grade equipment and lighting" },
+              { number: "03", icon: "🎯", title: "Personalized Training", description: "Custom training plans designed for individual goals and skill levels" },
+              { number: "04", icon: "📊", title: "Progress Tracking", description: "Regular assessments and detailed progress reports for every student" },
+              { number: "05", icon: "🏆", title: "Tournament Support", description: "Preparation, registration, and coaching support for competitions" },
+              { number: "06", icon: "💪", title: "Fitness Programs", description: "Comprehensive fitness and conditioning programs for peak performance" }
+            ].map((feature, index) => (
+              <div key={index} className="feature-box">
+                <div className="feature-number">{feature.number}</div>
+                <div className="feature-icon">{feature.icon}</div>
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1020,7 +931,7 @@ const Home = () => {
         <div className="container">
           <div className="info-grid">
             <div className="timings-card">
-              <h3>🏸 Academy Timings</h3>
+              <h3><FaPhone /> Academy Timings</h3>
               <div className="timings-list">
                 {academyTimings.map((timing, index) => (
                   <div key={index} className="timing-item">
@@ -1032,14 +943,15 @@ const Home = () => {
             </div>
             
             <div className="address-card">
-              <h3>📍 Our Location</h3>
+              <h3><FaMapMarkerAlt /> Our Location</h3>
               <div className="address-details">
                 <p><strong>Shuttle Smash Badminton Academy</strong></p>
-           <p>Central Railway, Behind Gymkhana,</p>  <p>Opp. Poddar College,</p>
-           <p>Matunga Railway Colony,</p>
-           <p>Matunga (E), Mumbai – 400019</p>
-                <p>📞 +91 90827 01081</p>
-                <h5>Email:</h5>
+                <p>Central Railway, Behind Gymkhana,</p>
+                <p>Opp. Poddar College,</p>
+                <p>Matunga Railway Colony,</p>
+                <p>Matunga (E), Mumbai – 400019</p>
+                <p><FaPhone /> +91 90827 01081</p>
+                <h5><FaEnvelope /> Email:</h5>
                 <p>shuttlesmash02@gmail.com</p>
               </div>
             </div>
@@ -1059,48 +971,29 @@ const Home = () => {
             <div className="form-info">
               <div className="form-header">
                 <h2 className="section-title">Book Your Free Trial Session</h2>
-                
               </div>
 
               <div className="trial-benefits">
                 <h3>What You Get in Your Free Trial:</h3>
                 <div className="benefits-list">
-                  <div className="benefit-item">
-                    <div className="benefit-icon">🏸</div>
-                    <div className="benefit-content">
-                      <h4>Professional Assessment</h4>
-                      <p>Get your current skill level evaluated by certified coaches</p>
+                  {[
+                    { icon: "🏸", title: "Professional Assessment", description: "Get your current skill level evaluated by certified coaches" },
+                    { icon: "👨‍🏫", title: "Expert Coaching", description: "Learn proper techniques from experienced professionals" },
+                    { icon: "🎯", title: "Personalized Plan", description: "Receive a customized training roadmap for your goals" },
+                    { icon: "🏆", title: "Equipment Included", description: "All rackets and shuttlecocks provided during trial" }
+                  ].map((benefit, index) => (
+                    <div key={index} className="benefit-item">
+                      <div className="benefit-icon">{benefit.icon}</div>
+                      <div className="benefit-content">
+                        <h4>{benefit.title}</h4>
+                        <p>{benefit.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="benefit-item">
-                    <div className="benefit-icon">👨‍🏫</div>
-                    <div className="benefit-content">
-                      <h4>Expert Coaching</h4>
-                      <p>Learn proper techniques from experienced professionals</p>
-                    </div>
-                  </div>
-                  
-                  <div className="benefit-item">
-                    <div className="benefit-icon">🎯</div>
-                    <div className="benefit-content">
-                      <h4>Personalized Plan</h4>
-                      <p>Receive a customized training roadmap for your goals</p>
-                    </div>
-                  </div>
-                  
-                  <div className="benefit-item">
-                    <div className="benefit-icon">🏆</div>
-                    <div className="benefit-content">
-                      <h4>Equipment Included</h4>
-                      <p>All rackets and shuttlecocks provided during trial</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
               <div className="trial-stats">
-                
                 <div className="stat-highlight">
                   <span className="stat-number">24hrs</span>
                   <span className="stat-text">average response time</span>
@@ -1140,7 +1033,7 @@ const Home = () => {
                 <form className="enhanced-trial-form" onSubmit={handleTrialSubmit}>
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="name" className="form-label" style={{ color: '#ffffff' }}>
+                      <label htmlFor="name" className="form-label" style={{color:'#fff'}}>
                         Full Name <span className="required">*</span>
                       </label>
                       <input 
@@ -1150,6 +1043,7 @@ const Home = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className={`form-input ${formErrors.name ? 'error' : ''}`}
+                        style={{color:'#fff'}}
                         placeholder="Enter your full name"
                       />
                       {formErrors.name && (
@@ -1158,7 +1052,7 @@ const Home = () => {
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="age" className="form-label" style={{ color: '#ffffff' }}>
+                      <label htmlFor="age" className="form-label" style={{color:'#fff'}}>
                         Age <span className="required">*</span>
                       </label>
                       <input 
@@ -1168,6 +1062,7 @@ const Home = () => {
                         value={formData.age}
                         onChange={handleInputChange}
                         className={`form-input ${formErrors.age ? 'error' : ''}`}
+                        style={{color:'#fff'}}
                         placeholder="Your age"
                         min="5" 
                         max="70"
@@ -1180,7 +1075,7 @@ const Home = () => {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="phone" className="form-label" style={{ color: '#ffffff' }}>
+                      <label htmlFor="phone" className="form-label">
                         Phone Number <span className="required">*</span>
                       </label>
                       <input 
@@ -1198,7 +1093,7 @@ const Home = () => {
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="email" className="form-label" style={{ color: '#ffffff' }}>
+                      <label htmlFor="email" className="form-label">
                         Email Address <span className="required">*</span>
                       </label>
                       <input 
@@ -1218,7 +1113,7 @@ const Home = () => {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="level" className="form-label" style={{ color: '#ffffff' }}>
+                      <label htmlFor="level" className="form-label">
                         Playing Level <span className="required">*</span>
                       </label>
                       <select 
@@ -1226,8 +1121,7 @@ const Home = () => {
                         name="level" 
                         value={formData.level}
                         onChange={handleInputChange}
-                        className={`form-select ${formErrors.level ? 'error' : ''}`} 
-                        style={{color: 'black'}}
+                        className={`form-select ${formErrors.level ? 'error' : ''}`}
                       >
                         <option value="">Select your level</option>
                         <option value="never-played">Never played before</option>
@@ -1242,7 +1136,7 @@ const Home = () => {
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="preferredTime" className="form-label" style={{ color: '#ffffff' }}>
+                      <label htmlFor="preferredTime" className="form-label">
                         Preferred Time <span className="required">*</span>
                       </label>
                       <select 
@@ -1250,15 +1144,13 @@ const Home = () => {
                         name="preferredTime" 
                         value={formData.preferredTime}
                         onChange={handleInputChange}
-                        className={`form-select ${formErrors.preferredTime ? 'error' : ''}`} 
-                        style={{color: 'black'}}
+                        className={`form-select ${formErrors.preferredTime ? 'error' : ''}`}
                       >
                         <option value="">Select preferred time</option>
                         <option value="early-morning">Early Morning (6:00 AM - 8:00 AM)</option>
                         <option value="morning">Morning (8:00 AM - 10:00 AM)</option>
                         <option value="afternoon">Afternoon (12:00 PM - 2:00 PM)</option>
                         <option value="evening">Evening (4:00 PM - 6:00 PM)</option>
-  
                         <option value="weekend">Weekend (Flexible)</option>
                       </select>
                       {formErrors.preferredTime && (
@@ -1268,7 +1160,7 @@ const Home = () => {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="message" className="form-label" style={{ color: '#ffffff' }}>
+                    <label htmlFor="message" className="form-label">
                       Additional Message (Optional)
                     </label>
                     <textarea 
@@ -1312,22 +1204,6 @@ const Home = () => {
                     </div>
                   </div>
                 </form>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="trust-indicators">
-                <div className="trust-item">
-                  <span className="trust-icon">⭐</span>
-                  <span className="trust-text">4.5/5 Rating</span>
-                </div>
-                <div className="trust-item">
-                  <span className="trust-icon">🛡️</span>
-                  <span className="trust-text">Secure & Private</span>
-                </div>
-                <div className="trust-item">
-                  <span className="trust-icon">⚡</span>
-                  <span className="trust-text">Quick Response</span>
-                </div>
               </div>
             </div>
           </div>
@@ -1389,21 +1265,20 @@ const Home = () => {
             
             <div className="footer-section">
               <h4>Contact Info</h4>
-              <p>📞 +91 90827 01081</p>
-              <p>📧 shuttlesmash02@gmail.com</p>
-              <p>📍 Mumbai, India</p>
+              <p><FaPhone /> +91 90827 01081</p>
+              <p><FaEnvelope /> shuttlesmash02@gmail.com</p>
+              <p><FaMapMarkerAlt /> Mumbai, India</p>
             </div>
             
             <div className="footer-section">
               <h4>Follow Us</h4>
               <div className="social-links">
-               <a href="https://www.instagram.com/ssba_academy_/" target="_blank" rel="noreferrer">
-        <FaInstagram size={30} color="#E1306C" />
- </a>    
-  <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-        <FaFacebook size={30} color="#1877F2" />
-      </a>
-                
+                <a href="https://www.instagram.com/ssba_academy_/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <FaInstagram size={24} />
+                </a>    
+                <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <FaFacebook size={24} />
+                </a>
               </div>
             </div>
           </div>
@@ -1415,22 +1290,13 @@ const Home = () => {
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <div 
+      <button 
         className="whatsapp-float" 
         onClick={openWhatsApp}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openWhatsApp();
-          }
-        }}
+        aria-label="Contact on WhatsApp"
       >
-        
-     
-      </div>
-      
+        <FaWhatsapp size={28} />
+      </button>
     </div>
   );
 };
