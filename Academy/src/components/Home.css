@@ -1,10 +1,18 @@
-/* Force white color for all trial form fields and labels */
-.enhanced-trial-form label,
+/* Ensure trial form input text is black for visibility on white backgrounds */
 .enhanced-trial-form input,
 .enhanced-trial-form select,
 .enhanced-trial-form textarea {
-  color: #fff !important;
+  color: #111 !important;
 }
+/* Force black color for all text in the mainCoach info section */
+.home-coach-section label,
+.home-coach-section input,
+.home-coach-section select,
+.home-coach-section textarea,
+.home-coach-section {
+  color: #111 !important;
+}
+/* Force white color for all trial form fields and labels */
 /* Home.css - Updated with Hamburger Menu & Improved Mobile Hero */
 
 /* ========================================
