@@ -47,18 +47,9 @@ const Home = () => {
   const [submitStatus, setSubmitStatus] = useState('');
 
   const slides = [
+  
     {
       id: 1,
-      type: 'image',
-      title: 'Shuttle Smash Badminton Academy',
-      punchline: 'Elevate Your Game',
-      description: 'Professional coaching from experienced players to take your skills to championship level',
-      ctaText: 'Book Free Trial',
-      image: coach,
-      overlay: 'coaching'
-    },
-    {
-      id: 2,
       type: 'image',
       title: 'Shuttle Smash Badminton Academy',
       punchline: 'Smash Your Limits',
@@ -68,7 +59,7 @@ const Home = () => {
       overlay: 'action'
     },
     {
-      id: 3,
+      id: 2,
       type: 'image',
       title: 'Shuttle Smash Badminton Academy',
       punchline: 'Train Like a Champion',
@@ -78,7 +69,7 @@ const Home = () => {
       overlay: 'champions'
     },
     {
-      id: 4,
+      id: 3,
       type: 'image',
       title: 'Shuttle Smash Badminton Academy',
       punchline: 'Proven Success Stories',
@@ -86,7 +77,17 @@ const Home = () => {
       ctaText: 'Meet With our Main Coach',
       image: maincoachprize,
       overlay: 'success'
-    }
+    },
+  {
+      id: 4,
+      type: 'image',
+      title: 'Shuttle Smash Badminton Academy',
+      punchline: 'Elevate Your Game',
+      description: 'Professional coaching from experienced players to take your skills to championship level',
+      ctaText: 'Book Free Trial',
+      image: coach,
+      overlay: 'coaching'
+    },
   ];
 
   // Stats data
