@@ -59,6 +59,9 @@
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Header */
@@ -287,6 +290,7 @@
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s var(--transition-normal);
+  justify-content: center;
 }
 
 .main-content-grid.animate {
