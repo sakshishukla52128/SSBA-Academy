@@ -162,13 +162,15 @@
 
 /* Contact Info Grid */
 .contact-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: 30px;
   margin-bottom: 60px;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s var(--transition-normal);
+  justify-content: center;
+  align-items: stretch;
 }
 
 .contact-info-grid.animate {
@@ -777,17 +779,30 @@
 .map-header p {
   color: var(--gray);
 }
-
+.map-container.animate {
+    opacity: 1;
+    transform: translateY(0);
+    width: 1400px;
+}
 .map-wrapper {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .map-iframe {
   border: none;
   display: block;
+  width: 100%;
+  min-height: 320px;
+  height: 400px;
+  max-width: 800px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
 }
 
 .map-overlay {
@@ -978,7 +993,15 @@
   }
   
   .contact-info-grid {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 30px;
+  }
+  .contact-info-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
   
   .contact-form-container,
