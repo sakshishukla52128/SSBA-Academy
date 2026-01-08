@@ -250,7 +250,7 @@ function Aboutus() {
             <div className="hero-stats">
               <div className="stat-item">
                 <span className="stat-number">6+</span>
-                <span className="stat-label">Years</span>
+                <span className="stat-label">Years of Experience</span>
               </div>
               <div className="stat-item">
                 <span className="stat-number">60+</span>

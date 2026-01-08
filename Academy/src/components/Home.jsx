@@ -586,14 +586,14 @@ const Home = () => {
                 <div className="home-quick-stat">
                   <div className="stat-icon">📅</div>
                   <div className="stat-content">
-                    <strong>10+</strong>
+                    <strong>6+</strong>
                     <span>Years Experience</span>
                   </div>
                 </div>
                 <div className="home-quick-stat">
                   <div className="stat-icon">👥</div>
                   <div className="stat-content">
-                    <strong>500+</strong>
+                    <strong>60+</strong>
                     <span>Students Trained</span>
                   </div>
                 </div>
