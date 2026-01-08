@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Programs.css';
 import { FaCalendarAlt, FaTrophy, FaMapMarkerAlt, FaClock, FaUsers, FaMedal, FaChevronRight } from 'react-icons/fa';
 import { Contact } from 'lucide-react';
@@ -730,8 +731,7 @@ function Programs() {
           <h2>Ready to Compete?</h2>
           <p>Join our tournaments and take your badminton journey to the next level</p>
           <div className="cta-buttons">
-            <button className="cta-btn primary">Register Now</button>
-            <button className="cta-btn secondary">Contact Us</button>
+            <Link to="/contact" className="cta-btn primary">Contact Us</Link>
           </div>
         </div>
       </section>

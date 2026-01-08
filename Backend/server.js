@@ -32,6 +32,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Verify transporter on startup
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log("❌ Email Configuration Error:", error);
+  } else {
+    console.log("✅ Email Server is ready to send messages");
+  }
+});
+
 // -----------------------
 // HELPER: REVERSE GEOCODING
 // -----------------------
@@ -188,44 +197,55 @@ app.post("/api/contact", async (req, res) => {
     });
 
     await newContact.save();
+    console.log("✅ Contact saved to database");
 
     // ADMIN EMAIL
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.ADMIN_EMAIL,
-      subject: `📍 New Contact Message from ${name}`,
-      html: `
-        <h2>New Contact Form</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p><b>Inquiry:</b> ${inquiryType}</p>
-        <p><b>Subject:</b> ${subject || "N/A"}</p>
-        <p><b>Message:</b> ${message}</p>
-        <hr/>
-        <h3>📍 User Location</h3>
-        <p>${addressData.fullAddress || "Not Available"}</p>
-        <a href="https://www.google.com/maps?q=${location?.latitude},${location?.longitude}">
-          View on Google Maps
-        </a>
-      `,
-    });
+    try {
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: process.env.ADMIN_EMAIL,
+        subject: `📍 New Contact Message from ${name}`,
+        html: `
+          <h2>New Contact Form</h2>
+          <p><b>Name:</b> ${name}</p>
+          <p><b>Email:</b> ${email}</p>
+          <p><b>Phone:</b> ${phone}</p>
+          <p><b>Inquiry:</b> ${inquiryType}</p>
+          <p><b>Subject:</b> ${subject || "N/A"}</p>
+          <p><b>Message:</b> ${message}</p>
+          <hr/>
+          <h3>📍 User Location</h3>
+          <p>${addressData.fullAddress || "Not Available"}</p>
+          <a href="https://www.google.com/maps?q=${location?.latitude},${location?.longitude}">
+            View on Google Maps
+          </a>
+        `,
+      });
+      console.log("✅ Admin email sent successfully");
+    } catch (emailError) {
+      console.error("❌ Admin email error:", emailError.message);
+    }
 
     // USER EMAIL
-    await transporter.sendMail({
-      from: `"SSBA Academy" <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: "✅ We received your message — SSBA",
-      html: `
-        <p>Hello <b>${name}</b>,</p>
-        <p>Thank you for contacting SSBA. We will get back to you shortly.</p>
-      `,
-    });
+    try {
+      await transporter.sendMail({
+        from: `"SSBA Academy" <${process.env.EMAIL_USER}>`,
+        to: email,
+        subject: "✅ We received your message — SSBA",
+        html: `
+          <p>Hello <b>${name}</b>,</p>
+          <p>Thank you for contacting SSBA. We will get back to you shortly.</p>
+        `,
+      });
+      console.log("✅ User confirmation email sent successfully");
+    } catch (emailError) {
+      console.error("❌ User email error:", emailError.message);
+    }
 
-    res.json({ success: true });
+    res.json({ success: true, message: "Contact form submitted successfully" });
   } catch (error) {
-    console.error("Contact Error:", error);
-    res.status(500).json({ success: false });
+    console.error("❌ Contact Error:", error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
