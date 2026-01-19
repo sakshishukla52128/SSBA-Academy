@@ -1955,3 +1955,52 @@
 .tournament-modal::-webkit-scrollbar-thumb:hover {
   background: #764ba2;
 }
+.registration-box {
+  text-align: center;
+  padding: 25px;
+  background: #ffffff;
+}
+
+.registration-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #00004d, #1a1aff);
+  color: #ffffff;
+  border: none;
+  padding: 14px 34px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover effect */
+.register-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Click effect */
+.register-btn:active {
+  transform: scale(0.96);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .registration-text {
+    font-size: 16px;
+  }
+
+  .register-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+  }
+}

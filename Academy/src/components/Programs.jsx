@@ -8,8 +8,8 @@ import { Contact } from 'lucide-react';
 const upcomingTournaments = [
   {
     id: 1,
-    title: "SSBA Tournaments 2026",
-    date: "31st & 1 January , 2026",
+    title: "SSBA Tournaments 2026(GRIP & SMASH 2.0)",
+    date: "31st Jan & 1st Feb , 2026",
     location: " Badminton Rush, Borivali West",
     category: "All Age Groups",
     registrationDeadline: "January 25, 2026",
@@ -21,6 +21,7 @@ const upcomingTournaments = [
     featured: true
 
   },
+
   {
     id: 2,
     title: "Inter-Academy Junior Cup",
@@ -254,6 +255,24 @@ function Programs() {
             <FaTrophy /> Tournaments & Events
           </div>
           <h1 className="hero-title">Compete, Learn & Excel</h1>
+          <div className="registration-box">
+  <p className="registration-text">
+    Get ready to compete! Tournament registrations are now open.
+  </p>
+
+  <button
+    className="register-btn"
+    onClick={() =>
+      window.open(
+        "https://docs.google.com/forms/d/e/1FAIpQLSdgdJmdEsXJn5xY6-EDGtoZsCnmwoNqzkD45ggPlUTn9N9PRA/viewform",
+        "_blank"
+      )
+    }
+  >
+    Register Now
+  </button>
+</div>
+
           <p className="hero-description">
             Join our tournaments and events to test your skills and achieve greatness
           </p>
@@ -308,11 +327,13 @@ function Programs() {
                     <div className="featured-badge">
                       <FaTrophy /> Featured
                     </div>
+                    
                   )}
                   
                   <div className="tournament-image">
                     <img src={tournament.image} alt={tournament.title} />
                     <div className="status-badge">{tournament.status}</div>
+
                   </div>
 
                   <div className="tournament-content">
@@ -355,6 +376,7 @@ function Programs() {
               ))}
             </div>
           </div>
+          
         </section>
       )}
 
