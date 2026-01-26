@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Programs.css';
 import { FaCalendarAlt, FaTrophy, FaMapMarkerAlt, FaClock, FaUsers, FaMedal, FaChevronRight } from 'react-icons/fa';
-import { Contact } from 'lucide-react';
+
 
 // Upcoming Tournaments Data
 const upcomingTournaments = [
@@ -254,7 +254,7 @@ function Programs() {
           <div className="hero-badge">
             <FaTrophy /> Tournaments & Events
           </div>
-          <h1 className="hero-title">Compete, Learn & Excel</h1>
+          <h2 className="hero-title">Compete, Learn & Excel</h2>
           <div className="registration-box">
   <p className="registration-text">
     Get ready to compete! Tournament registrations are now open.
