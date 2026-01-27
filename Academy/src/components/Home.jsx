@@ -2,11 +2,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './Home.css';
 import { 
-  FaInstagram, 
-  FaFacebook, 
+  FaInstagram,  
   FaWhatsapp,
-  FaBars,
-  FaTimes,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
@@ -169,10 +166,7 @@ const Home = () => {
     setCurrentSlide(index);
   };
 
-  // Toggle mobile menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  
 
   // Animated counters
   const [counters, setCounters] = useState(statsData.map(() => 0));
@@ -843,8 +837,7 @@ const Home = () => {
                 text: "Best badminton academy in the area! My daughter has been training here for 2 years. The improvement in her skills and confidence is remarkable. Highly recommend SSBA!",
                 author: "Priya Sharma",
                 role: "Parent of Student",
-                rating: 5,
-                featured: true
+                rating: 5
               },
               {
                 text: "The training facilities are top-notch and the coaching is world-class. I've learned so much about technique, strategy, and mental strength. Worth every penny!",
@@ -1277,9 +1270,7 @@ const Home = () => {
                 <a href="https://www.instagram.com/ssba_academy_/" target="_blank" rel="noreferrer" aria-label="Instagram">
                   <FaInstagram size={24} />
                 </a>    
-                <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-                  <FaFacebook size={24} />
-                </a>
+                
               </div>
             </div>
           </div>
