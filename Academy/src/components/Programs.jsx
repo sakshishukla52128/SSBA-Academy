@@ -255,23 +255,7 @@ function Programs() {
             <FaTrophy /> Tournaments & Events
           </div>
           <h2 className="hero-title">Compete, Learn & Excel</h2>
-          <div className="registration-box">
-  <p className="registration-text">
-    Get ready to compete! Tournament registrations are now open.
-  </p>
-
-  <button
-    className="register-btn"
-    onClick={() =>
-      window.open(
-        "https://docs.google.com/forms/d/e/1FAIpQLSdgdJmdEsXJn5xY6-EDGtoZsCnmwoNqzkD45ggPlUTn9N9PRA/viewform",
-        "_blank"
-      )
-    }
-  >
-    Register Now
-  </button>
-</div>
+       
 
           <p className="hero-description">
             Join our tournaments and events to test your skills and achieve greatness
