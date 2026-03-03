@@ -257,7 +257,7 @@ const Facilities = () => {
         
         {/* Header Section */}
         <div className="facilities-header">
-          <div className="badge">🏸 PRACTICAL FACILITIES</div>
+          <div ></div>
           <h1 className="facilities-title">
             Well-Equipped Badminton 
             <span className="highlight"> Training Center</span>
