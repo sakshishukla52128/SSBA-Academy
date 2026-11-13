@@ -19,7 +19,7 @@ import maincoach from '../assets/maincoach.png';
 import maincoachprize from '../assets/maincoachprize.png';
 import Gallery from '../assets/Gallery.png';
 import Gallery2 from '../assets/Gallery2.png';
-
+import dhule from '../assets/dhule.png';
 const Home = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -85,6 +85,17 @@ const Home = () => {
       image: coach,
       overlay: 'coaching'
     },
+      {
+      id: 5,
+      type: 'image',
+      title: 'Shuttle Smash Badminton Academy',
+      punchline: 'Elevate Your Game',
+      description: 'Professional coaching from experienced players to take your skills to championship level',
+      ctaText: 'Book Free Trial',
+      image: dhule,
+      overlay: 'coaching'
+    },
+    
   ];
 
   // Stats data
