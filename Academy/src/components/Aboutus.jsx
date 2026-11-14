@@ -27,20 +27,20 @@ import {
 import Gallery2 from '../assets/new12.png';
 import seconedcoach from '../assets/secondcoach.png';
 import priya1 from '../assets/priya1.png';
-import Gallery from '../assets/Gallery4.png';
+import Gallery from '../assets/dhulemaincoachprize.png';
 import Gallery1 from '../assets/groupphoto.png';
-import Gallery6 from '../assets/allmembers.png';
+import Gallery6 from '../assets/gujrat.jpg';
 
 const coachesData = [
   {
     name: 'Simran Shukla',
     role: 'Founder & Head coach',
-    experience: '6+ Years',
+    experience: '8+ Years',
     specialization: 'Singles & Doubles Strategy',
     imgSrc: Gallery2,
     certifications: ['NIS Certified Coach', 'National Level Player',],
     specializations: ['Advanced Techniques', 'Match Strategy', 'Mental Conditioning', 'Youth Development','Doubles Strategy'],
-    achievements: ['50+ Tournament Wins', 'State Champion 2018', 'Trained 60+ Students'],
+    achievements: ['50+ Tournament Wins', 'State Champion 2018', 'Trained 1000+ Students'],
     social: {
       linkedin: '#',
       twitter: '#',
@@ -249,11 +249,11 @@ function Aboutus() {
             </p>
             <div className="hero-stats">
               <div className="stat-item">
-                <span className="stat-number">6+</span>
+                <span className="stat-number">8+</span>
                 <span className="stat-label">Years of Experience</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">60+</span>
+                <span className="stat-number">1000+</span>
                 <span className="stat-label">Students</span>
               </div>
               <div className="stat-item">
@@ -263,9 +263,7 @@ function Aboutus() {
             </div>
           </div>
           <div className="hero-image">
-            <div className="floating-card card-1">🏸</div>
-            <div className="floating-card card-2">🏆</div>
-            <div className="floating-card card-3">⚖️</div>
+         
             <img src={Gallery} alt="Badminton Academy" />
           </div>
         </div>
@@ -531,31 +529,31 @@ function Aboutus() {
                   <h2 className="section-title">Our Story</h2>
                   <div className="story-timeline">
                     <div className="timeline-item">
-                      <div className="timeline-year">2020</div>
+                      <div className="timeline-year">2018</div>
                       <div className="timeline-content">
                         <h3>The Beginning</h3>
-                        <p>Founded by Simran Shukla with a vision to create champions and make badminton accessible to all.</p>
+                        <p>SSBA began with Simran Shukla's vision to make disciplined, professional badminton coaching accessible to every player.</p>
                       </div>
                     </div>
                     <div className="timeline-item">
-                      <div className="timeline-year">2022</div>
+                      <div className="timeline-year">2020</div>
                       <div className="timeline-content">
-                        <h3>Expansion</h3>
-                        <p>Expanded to multiple training centers with state-of-the-art facilities and professional coaching staff.</p>
+                        <h3>Building the Foundation</h3>
+                        <p>Structured training batches and a player-first coaching system helped students build strong fundamentals.</p>
                       </div>
                     </div>
                     <div className="timeline-item">
-                      <div className="timeline-year">2024</div>
+                      <div className="timeline-year">2023</div>
                       <div className="timeline-content">
-                        <h3>Recognition</h3>
-                        <p>Awarded "Best Badminton Academy" with 60+ trained students and 50+ tournament victories.</p>
+                        <h3>Growing Stronger</h3>
+                        <p>Our players started achieving success across district, state, and national-level tournaments.</p>
                       </div>
                     </div>
                     <div className="timeline-item">
-                      <div className="timeline-year">2025</div>
+                      <div className="timeline-year">2026</div>
                       <div className="timeline-content">
-                        <h3>Excellence Continues</h3>
-                        <p>Leading academy with state-level players and a reputation for developing future champions.</p>
+                        <h3>8 Years of Excellence</h3>
+                        <p>Today, SSBA continues to train 1000+ students and develop confident players ready for their next level.</p>
                       </div>
                     </div>
                   </div>
@@ -563,9 +561,10 @@ function Aboutus() {
                 <div className="story-image">
                   <img src={Gallery1} alt="Our Journey" />
                   <img src={Gallery6} alt="" />
+                  <img src={Gallery} alt="SSBA players in training" />
                   <div className="story-badge">
                     <FaTrophy className="badge-icon" />
-                    <span>5 Years of Excellence</span>
+                    <span>8 Years of Excellence</span>
                   </div>
                 </div>
               </div>
@@ -647,7 +646,7 @@ function Aboutus() {
                   <div className="stat-icon-circle">
                     <FaUsers className="stat-icon" />
                   </div>
-                  <div className="stat-number">60+</div>
+                  <div className="stat-number">1000+</div>
                   <div className="stat-label">Trained Students</div>
                   <p className="stat-description">Students trained to excellence</p>
                 </div>
@@ -671,7 +670,7 @@ function Aboutus() {
                   <div className="stat-icon-circle">
                     <FaMedal className="stat-icon" />
                   </div>
-                  <div className="stat-number">6+</div>
+                  <div className="stat-number">8+</div>
 
                   <div className="stat-label">Years Experience</div>
                   <p className="stat-description">Of badminton excellence</p>
@@ -929,7 +928,7 @@ function Aboutus() {
             <p>Join SSBA Academy today for professional coaching or book our certified umpires for your tournaments!</p>
             <div className="cta-stats-mini">
               <div className="cta-stat">
-                <strong>60+</strong>
+                <strong>1000+</strong>
                 <span>Students</span>
               </div>
               <div className="cta-stat">
@@ -937,7 +936,7 @@ function Aboutus() {
                 <span>Tournaments</span>
               </div>
               <div className="cta-stat">
-                <strong>6+</strong>
+                <strong>8+</strong>
                 <span>Years</span>
               </div>
               <div className="cta-stat">

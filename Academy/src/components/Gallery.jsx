@@ -30,6 +30,7 @@ import new11 from '../assets/new11.png';
 import winner from '../assets/winner.png';
 import winner2 from '../assets/winner2.png';
 import winner3 from '../assets/winner3.png';
+import single1 from '../assets/single1.jpg';
 const galleryData = [
   { 
     id: 1, 
@@ -199,6 +200,13 @@ const galleryData = [
     title: "Winner", 
     category: "Coaching",
     description: "Expert guidance from certified coaches"
+  },
+  { 
+    id: 26, 
+    src: single1, 
+    title: "Match Day Energy", 
+    category: "Training",
+    description: "Players bringing focus and energy to every session"
   },
 ];
 

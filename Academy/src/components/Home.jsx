@@ -7,8 +7,11 @@ import {
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaArrowDown,
   FaChevronLeft,
-  FaChevronRight
+  FaChevronRight,
+  FaExternalLinkAlt,
+  FaNewspaper
 } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
@@ -19,7 +22,11 @@ import maincoach from '../assets/maincoach.png';
 import maincoachprize from '../assets/maincoachprize.png';
 import Gallery from '../assets/Gallery.png';
 import Gallery2 from '../assets/Gallery2.png';
+import Gallery3 from '../assets/Gallery3.png';
+import Gallery4 from '../assets/Gallery4.png';
+import winner from '../assets/gujrat.jpg';
 import dhule from '../assets/dhule.png';
+import dhule2 from '../assets/dhulemaincoachprize.png';
 const Home = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -49,9 +56,7 @@ const Home = () => {
       id: 1,
       type: 'image',
       title: 'Shuttle Smash Badminton Academy',
-      punchline: 'Smash Your Limits',
-      description: 'Watch our players in action during intense match simulations and training sessions',
-      ctaText: 'View Programs',
+   
       image: groupphoto,
       overlay: 'action'
     },
@@ -59,9 +64,7 @@ const Home = () => {
       id: 2,
       type: 'image',
       title: 'Shuttle Smash Badminton Academy',
-      punchline: 'Train Like a Champion',
-      description: 'Join our champion players and learn from the best in state-of-the-art facilities',
-      ctaText: 'Meet Our Coaches',
+    
       image: maincoach,
       overlay: 'champions'
     },
@@ -69,9 +72,6 @@ const Home = () => {
       id: 3,
       type: 'image',
       title: 'Shuttle Smash Badminton Academy',
-      punchline: 'Proven Success Stories',
-      description: 'Our students consistently win tournaments and achieve their badminton dreams',
-      ctaText: 'Meet With our Main Coach',
       image: maincoachprize,
       overlay: 'success'
     },
@@ -79,29 +79,25 @@ const Home = () => {
       id: 4,
       type: 'image',
       title: 'Shuttle Smash Badminton Academy',
-      punchline: 'Elevate Your Game',
-      description: 'Professional coaching from experienced players to take your skills to championship level',
-      ctaText: 'Book Free Trial',
+    
       image: coach,
       overlay: 'coaching'
     },
       {
       id: 5,
       type: 'image',
-      title: 'Shuttle Smash Badminton Academy',
-      punchline: 'Elevate Your Game',
-      description: 'Professional coaching from experienced players to take your skills to championship level',
-      ctaText: 'Book Free Trial',
+      title: 'Shuttle Smash Badminton Academy',   
+    
       image: dhule,
       overlay: 'coaching'
     },
-    
+
   ];
 
   // Stats data
   const statsData = React.useMemo(() => [
     { 
-      number: 60, 
+      number: 1000, 
       suffix: '+', 
       label: 'Trained Players',
       icon: '👥',
@@ -117,7 +113,7 @@ const Home = () => {
       color: '#ff6b6b'
     },
     { 
-      number: 5, 
+      number: 8, 
       suffix: '+', 
       label: 'Professional Coaches',
       icon: '🎓',
@@ -125,7 +121,7 @@ const Home = () => {
       color: '#ffa500'
     },
     { 
-      number: 5, 
+      number: 8, 
       suffix: '+', 
       label: 'Years of Excellence',
       icon: '⭐',
@@ -138,8 +134,8 @@ const Home = () => {
   const mainCoach = {
     name: "Simran Shukla",
     image: maincoach,
-    additionalImages: [Gallery, Gallery2], 
-    experience: "5+ Years",
+    additionalImages: [Gallery, Gallery2, Gallery3, Gallery4,dhule2, winner], 
+    experience: "8+ Years",
     certification: "NIS-Certified Badminton Coach",
     message: "Helping players grow with discipline, dedication and passion.",
     
@@ -411,52 +407,20 @@ const Home = () => {
                   <p className="description">{slide.description}</p>
                   
                   <div className="cta-buttons">
+                   
                     <button 
-                      className="cta-primary"
-                      onClick={() => scrollToSection('trial-form')}
-                    >
-                      {slide.ctaText}
-                    </button>
-                    <button 
-                      className="cta-secondary"
+                      className="cta-secondary cta-learn-more"
                       onClick={() => scrollToSection('about-coach')}
+                      aria-label="Learn more about the academy"
+                      title="Learn More"
                     >
-                      Learn More
+                      <FaArrowDown aria-hidden="true" />
                     </button>
                   </div>
 
                   {/* Feature Highlights */}
                   <div className="feature-highlights">
-                    <div className="features">
-                      {slide.overlay === 'coaching' && (
-                        <>
-                          <span className="feature-tag">Expert Coaches</span>
-                          <span className="feature-tag">Personal Training</span>
-                          <span className="feature-tag">Skill Development</span>
-                        </>
-                      )}
-                      {slide.overlay === 'action' && (
-                        <>
-                          <span className="feature-tag">Live Matches</span>
-                          <span className="feature-tag">Intensive Drills</span>
-                          <span className="feature-tag">Performance Analysis</span>
-                        </>
-                      )}
-                      {slide.overlay === 'champions' && (
-                        <>
-                          <span className="feature-tag">Tournament Players</span>
-                          <span className="feature-tag">Pro Techniques</span>
-                          <span className="feature-tag">Elite Training</span>
-                        </>
-                      )}
-                      {slide.overlay === 'success' && (
-                        <>
-                          <span className="feature-tag">Trophy Winners</span>
-                          <span className="feature-tag">Success Stories</span>
-                          <span className="feature-tag">Proven Results</span>
-                        </>
-                      )}
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -538,8 +502,9 @@ const Home = () => {
       >
         <div className="container">
           <div className="home-coach-header">
+            <span className="coach-eyebrow">MEET THE TEAM</span>
             <h2 className="section-title">Meet Our Head Coach</h2>
-            <p className="section-subtitle">Learn from a national-level player and NIS-certified coach</p>
+            <p className="section-subtitle">Learn from a national-level player and NIS-certified coach who turns discipline into performance.</p>
           </div>
           
           <div className="home-coach-layout">
@@ -559,16 +524,19 @@ const Home = () => {
                 </div>
               </div>
               
-              <div className="home-coach-mini-gallery">
-                {mainCoach.additionalImages.map((img, index) => (
-                  <div key={index} className="home-mini-img">
-                    <img 
-                      src={img} 
-                      alt={`Coach achievement ${index + 1}`} 
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
+              <div className="home-coach-gallery-frame">
+                <span className="gallery-frame-label">Coach in action</span>
+                <div className="home-coach-mini-gallery">
+                  {mainCoach.additionalImages.map((img, index) => (
+                    <div key={index} className="home-mini-img">
+                      <img 
+                        src={img} 
+                        alt={`Coach achievement ${index + 1}`} 
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -580,6 +548,30 @@ const Home = () => {
                   <span className="cert-icon">🏆</span>
                   <span className="cert-text">{mainCoach.certification}</span>
                 </div>
+                <a
+                  className="home-coach-feature"
+                  href="https://www.totalsf.in/coaches/simran-shukla"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="feature-verified">✓ VERIFIED COACH</span>
+                  <span className="feature-source">Featured on Total Sports Academy</span>
+                  <span className="feature-link">View Profile ↗</span>
+                </a>
+                <a
+                  className="home-news-feature"
+                  href="https://www.sportsnextindia.com/blogs/shuttle-smash-junior-badminton-tournament-2026/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="news-feature-icon"><FaNewspaper /></span>
+                  <span className="news-feature-copy">
+                    <span className="news-feature-label">IN THE NEWS</span>
+                    <strong>Shuttle Smash Junior Badminton Tournament 2026</strong>
+                    <span>Read the SportsNext India feature</span>
+                  </span>
+                  <FaExternalLinkAlt className="news-feature-arrow" />
+                </a>
               </div>
 
               <div className="home-coach-quote-wrapper">
@@ -591,14 +583,14 @@ const Home = () => {
                 <div className="home-quick-stat">
                   <div className="stat-icon">📅</div>
                   <div className="stat-content">
-                    <strong>6+</strong>
+                    <strong>8+</strong>
                     <span>Years Experience</span>
                   </div>
                 </div>
                 <div className="home-quick-stat">
                   <div className="stat-icon">👥</div>
                   <div className="stat-content">
-                    <strong>60+</strong>
+                    <strong>1000+</strong>
                     <span>Students Trained</span>
                   </div>
                 </div>
@@ -667,8 +659,9 @@ const Home = () => {
       >
         <div className="container">
           <div className="programs-header">
-            <h2 className="section-title">Our Training Programs</h2>
-            <p className="section-subtitle">Choose the perfect program tailored to your badminton journey</p>
+            <span className="programs-eyebrow">TRAIN WITH PURPOSE</span>
+            <h2 className="section-title">Find Your Winning Program</h2>
+            <p className="section-subtitle">Expert badminton coaching designed for every stage of your journey—from first rally to tournament-ready performance.</p>
           </div>
           
           <div className="programs-grid">
