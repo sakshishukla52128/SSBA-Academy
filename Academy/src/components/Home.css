@@ -248,17 +248,67 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, #10243a 0%, #1d3850 48%, #0d1828 100%);
+}
+
+.slide-background::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    linear-gradient(90deg, transparent 49.7%, rgba(255, 255, 255, 0.1) 50%, transparent 50.3%),
+    linear-gradient(0deg, transparent 49.7%, rgba(255, 255, 255, 0.08) 50%, transparent 50.3%),
+    radial-gradient(circle at 20% 25%, rgba(78, 205, 196, 0.3), transparent 28%),
+    radial-gradient(circle at 80% 75%, rgba(255, 165, 0, 0.18), transparent 25%);
+  background-size: 180px 180px, 180px 180px, auto, auto;
+  transform: rotate(-8deg);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.slide-background::after {
+  content: "";
+  position: absolute;
+  right: -14%;
+  bottom: -34%;
+  z-index: 1;
+  width: min(58vw, 680px);
+  aspect-ratio: 1;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 24px rgba(78, 205, 196, 0.06),
+    0 0 0 62px rgba(255, 165, 0, 0.04);
+  transform: rotate(-18deg);
+  animation: courtGlow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.slide-backdrop {
+  position: absolute;
+  inset: -24px;
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(24px);
+  opacity: 0.65;
+  transform: scale(1.08);
 }
 
 .background-image {
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
+  background-color: rgba(16, 19, 29, 0.2);
   position: relative;
-  transform: scale(1);
+  z-index: 1;
+  transform: scaleX(1.12);
   transition: transform 6s ease-out;
 }
 
@@ -273,8 +323,30 @@ body {
     linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 45%, rgba(0, 0, 0, 0.6) 100%);
 }
 
+.background-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(78, 205, 196, 0.2), transparent 22%),
+    radial-gradient(circle at 86% 78%, rgba(255, 165, 0, 0.14), transparent 24%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
 .slide.active .background-image {
-  transform: scale(1.06);
+  transform: scaleX(1.12);
+}
+
+@keyframes courtGlow {
+  from {
+    opacity: 0.45;
+    transform: rotate(-18deg) scale(0.98);
+  }
+  to {
+    opacity: 0.85;
+    transform: rotate(-10deg) scale(1.04);
+  }
 }
 
 .slide-content {
@@ -313,7 +385,7 @@ body {
 .academy-title {
   position: absolute;
   top: 28%;
-  left: clamp(1.5rem, 7vw, 6rem);
+  left: clamp(1rem, 3vw, 3rem);
   width: min(520px, 44vw);
   max-width: none;
   font-size: clamp(2rem, 4vw, 3.4rem);

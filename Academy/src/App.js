@@ -9,12 +9,13 @@ import Programs from "./components/Programs";
 import Facilities from "./components/Facilities";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
-import VoiceAssistant from './components/VoiceAssistant';
+import TournamentPopup from './components/TournamentPopup';
 function App() {
   return (
     <div className="App">
     <BrowserRouter>
       <Navigation />
+      <TournamentPopup />
       
       <Routes>
         <Route path="/" element={<Home />} />
@@ -29,7 +30,6 @@ function App() {
 
       </Routes>
     </BrowserRouter>
-    <VoiceAssistant />
     </div>
   );
 }

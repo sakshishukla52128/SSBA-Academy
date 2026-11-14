@@ -27,6 +27,9 @@ import Gallery4 from '../assets/Gallery4.png';
 import winner from '../assets/gujrat.jpg';
 import dhule from '../assets/dhule.png';
 import dhule2 from '../assets/dhulemaincoachprize.png';
+import achievementTeam from '../assets/achievement-team-2026.png';
+import achievementAward from '../assets/achievement-award-2026.png';
+import achievementWinners from '../assets/achievement-winners-2026.png';
 const Home = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -69,11 +72,25 @@ const Home = () => {
       overlay: 'champions'
     },
     {
+      id: 6,
+      type: 'image',
+      title: ' Shuttle Smash Badminton Academy',
+      image: achievementTeam,
+      overlay: 'success'
+    },
+    {
       id: 3,
       type: 'image',
       title: 'Shuttle Smash Badminton Academy',
       image: maincoachprize,
       overlay: 'success'
+    },
+    {
+      id: 7,
+      type: 'image',
+       title: 'Shuttle Smash Badminton Academy',
+      image: achievementAward,
+      overlay: 'champions'
     },
   {
       id: 4,
@@ -82,6 +99,13 @@ const Home = () => {
     
       image: coach,
       overlay: 'coaching'
+    },
+      {
+      id: 8,
+      type: 'image',
+      title: 'Shuttle Smash Badminton Academy',
+      image: achievementWinners,
+      overlay: 'success'
     },
       {
       id: 5,
@@ -390,6 +414,10 @@ const Home = () => {
           >
             {/* Parallax Background */}
             <div className="slide-background">
+              <div
+                className="slide-backdrop"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              ></div>
               <div 
                 className="background-image"
                 style={{ backgroundImage: `url(${slide.image})` }}
@@ -951,6 +979,11 @@ const Home = () => {
                 <p><FaPhone /> +91 90827 01081</p>
                 <h5><FaEnvelope /> Email:</h5>
                 <p>shuttlesmash02@gmail.com</p>
+                <p><strong>Goregaon Location</strong></p>
+                <p>SPORTS ARENA - (SOUTH PARK)</p>
+                <p>Swami Ayyappa Temple Marg,</p>
+                <p>Bangur Nagar, Goregaon West,</p>
+                <p>Mumbai - 400104</p>
               </div>
             </div>
           </div>

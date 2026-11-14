@@ -1,0 +1,227 @@
+.tournament-register-fab {
+  position: fixed;
+  right: 22px;
+  bottom: 24px;
+  z-index: 10900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 17px;
+  border: 0;
+  border-radius: 999px;
+  background: #405c2e;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.tournament-register-fab svg {
+  font-size: 1.15rem;
+}
+
+.tournament-register-fab:hover {
+  background: #304721;
+  transform: translateY(-3px);
+}
+
+.tournament-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(3, 10, 5, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.tournament-popup {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(190px, 0.75fr) minmax(0, 1fr);
+  width: min(940px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  border: 2px solid #d6e2bf;
+  border-radius: 18px;
+  background: #f8f8ed;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+  animation: tournamentPopupIn 0.3s ease-out;
+}
+
+.tournament-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tournament-popup-poster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  background: #e7ead5;
+}
+
+.tournament-popup-poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: contain;
+}
+
+.tournament-popup-content {
+  padding: 34px 34px 24px;
+  overflow-y: auto;
+  color: #172118;
+}
+
+.tournament-popup-eyebrow {
+  margin: 0 0 8px;
+  color: #586d3e;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tournament-popup-content h2 {
+  margin: 0 0 10px;
+  color: #172c18;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  text-transform: uppercase;
+}
+
+.tournament-popup-intro {
+  margin: 0 0 18px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.tournament-popup-details {
+  padding: 16px;
+  border-left: 4px solid #52683d;
+  border-radius: 8px;
+  background: #e9eddc;
+}
+
+.tournament-popup-details p {
+  margin: 7px 0;
+  line-height: 1.4;
+}
+
+.tournament-popup-notice {
+  margin: 18px 0;
+  color: #9a2c20;
+  font-weight: 800;
+}
+
+.tournament-popup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tournament-popup-actions a {
+  flex: 1 1 190px;
+  padding: 13px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tournament-popup-register {
+  background: #405c2e;
+}
+
+.tournament-popup-whatsapp {
+  background: #198754;
+}
+
+.tournament-popup-cancel {
+  flex: 1 1 100%;
+  padding: 10px 16px;
+  border: 1px solid #b5b9ab;
+  border-radius: 8px;
+  background: transparent;
+  color: #596052;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tournament-popup-cancel:hover {
+  background: #e9eddc;
+}
+
+.tournament-popup-actions a:hover {
+  filter: brightness(1.1);
+}
+
+.tournament-popup-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 18px;
+  color: #596052;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.tournament-popup-footer a {
+  color: #405c2e;
+  font-weight: 700;
+}
+
+@keyframes tournamentPopupIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .tournament-register-fab {
+    right: 14px;
+    bottom: 16px;
+    padding: 12px 14px;
+  }
+
+  .tournament-popup {
+    display: block;
+    max-height: calc(100vh - 24px);
+  }
+
+  .tournament-popup-poster {
+    height: 430px;
+    min-height: 0;
+  }
+
+  .tournament-popup-poster img {
+    min-height: 0;
+    object-position: center;
+  }
+
+  .tournament-popup-content {
+    padding: 24px 20px 20px;
+  }
+}

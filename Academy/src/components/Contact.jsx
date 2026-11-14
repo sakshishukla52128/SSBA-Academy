@@ -43,6 +43,19 @@ const Contact = () => {
       bgColor: 'rgba(59, 130, 246, 0.1)'
     },
     {
+      id: 4,
+      icon: '📍',
+      title: 'New Academy Location',
+      details: [
+        'SPORTS ARENA - (SOUTH PARK)',
+        'Swami Ayyappa Temple Marg',
+        'Bangur Nagar, Goregaon West',
+        'Mumbai - 400104'
+      ],
+      color: 'blue',
+      bgColor: 'rgba(59, 130, 246, 0.1)'
+    },
+    {
       id: 2,
       icon: '📞',
       title: 'Call Us',
@@ -677,13 +690,14 @@ Sent from Shuttle Smash Contact Form
         {/* Map */}
         <div className={`map-container ${isVisible ? 'animate' : ''}`}>
           <div className="map-header">
-            <h4>Our Location</h4>
+            <h4>Academy Locations</h4>
             <p>Central Railway, Matunga (E), Mumbai – 400019</p>
+            <p>SPORTS ARENA - (SOUTH PARK), Bangur Nagar, Goregaon West, Mumbai - 400104</p>
           </div>
           <div className="map-wrapper">
             <iframe
-              title="SSBA Location"
-              src="https://www.google.com/maps?q=Central%20Railway%20Behind%20Gymkhana%20Matunga%20Mumbai&output=embed"
+              title="SSBA New Academy Location"
+              src="https://www.google.com/maps?q=Sports%20Arena%20South%20Park%20Swami%20Ayyappa%20Temple%20Marg%20Bangur%20Nagar%20Goregaon%20West%20Mumbai&output=embed"
               width="100%"
               height="350"
               className="map-iframe"
